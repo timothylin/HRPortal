@@ -12,5 +12,12 @@ namespace HRPortal.Models
         public string Message { get; set; }
 
         public Application Application { get; set; }
+        public List<Application> ApplicationsList { get; set; } 
+
+        public Response()
+        {
+            Application = new Application();
+            ApplicationsList = new List<Application>();
+        }
     }
 }
