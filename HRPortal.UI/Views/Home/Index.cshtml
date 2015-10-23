@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to SG Corp HR Portal!</h2>
+
+<div>
+    <!--may add ID to null-->
+    @Html.ActionLink("Applicant", "Index", "Applicant", null, new {@class = "btn btn-primary"})
+</div>
+<br/>
+<div>
+    @Html.ActionLink("Admin", "Index", "Admin", null, new { @class = "btn btn-primary" })
+</div>

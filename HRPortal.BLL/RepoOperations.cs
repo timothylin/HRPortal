@@ -41,6 +41,26 @@ namespace HRPortal.BLL
             return _response;
         }
 
+        // View particular app
+        public Response GetAppById(int id)
+        {
+            var app = _repo.GetById(id);
+
+            if (app != null)
+            {
+                _response.Success = true;
+                _response.Message = "Here is your application.";
+                _response.Application = app;
+            }
+            else
+            {
+                _response.Success = false;
+                _response.Message = "Your application was not found.";
+            }
+
+            return _response;
+        }
+
 
         //Add new application
         public Response AddAppToRepo(Application newApp)

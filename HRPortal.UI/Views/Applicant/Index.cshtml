@@ -1,0 +1,65 @@
+﻿@model HRPortal.Models.Application
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to the Application Page!</h2>
+
+@using (Html.BeginForm("SubmitApp", "Applicant", FormMethod.Post))
+{
+        @Html.HiddenFor(a => a.AppId, new { @class = "form-control" })
+
+    <div class="form-group">
+        <label>Prefix</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Prefix, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>First Name</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.FirstName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.LastName, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        <label>Middle Initial</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.MiddleInitial, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        <label>Suffix</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Suffix, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Address Line 1</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Address.AddressLine1, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        <label>Address Line 2</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Address.AddressLine2, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        <label>City</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Address.City, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>State</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Address.State, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Zipcode</label>
+        @Html.TextBoxFor(a => a.ApplicantContactInfo.Address.Zipcode, new {@class = "form-control"})
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+}
+

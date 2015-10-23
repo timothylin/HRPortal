@@ -10,6 +10,10 @@ namespace HRPortal.Data.Repository
 {
     public class ProdRepository : IRepository
     {
+
+        //var rootPath = Server.MapPath("~/");
+
+        
         public void Add(Application newApp)
         {
             throw new NotImplementedException();
