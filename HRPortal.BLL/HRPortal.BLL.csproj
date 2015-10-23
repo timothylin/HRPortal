@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoOperations.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HRPortal.Data\HRPortal.Data.csproj">

@@ -12,6 +12,7 @@ namespace HRPortal.Data.Repository
     {
         public static IRepository CreateRepository()
         {
+
             switch (ConfigurationManager.AppSettings["mode"])
             {
                 case "mock":
