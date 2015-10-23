@@ -136,6 +136,10 @@
       <Project>{729d37d8-2965-4b8c-886e-f0d9dd633dc3}</Project>
       <Name>HRPortal.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HRPortal.Models\HRPortal.Models.csproj">
+      <Project>{e55752ff-9cd4-4401-af3e-1007db41ed89}</Project>
+      <Name>HRPortal.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

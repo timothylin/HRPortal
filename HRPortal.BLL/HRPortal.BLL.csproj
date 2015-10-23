@@ -47,6 +47,13 @@
       <Project>{80265294-3875-4811-b576-848c4aa4c425}</Project>
       <Name>HRPortal.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HRPortal.Models\HRPortal.Models.csproj">
+      <Project>{e55752ff-9cd4-4401-af3e-1007db41ed89}</Project>
+      <Name>HRPortal.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
