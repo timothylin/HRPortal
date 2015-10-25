@@ -1,0 +1,18 @@
+﻿@model HRPortal.UI.Models.CreateAppVM
+
+@{
+    ViewBag.Title = "CreateApp";
+}
+
+<h2>Submit a New Application</h2>
+
+@using (Html.BeginForm("CreateApp", "Applicant", FormMethod.Post))
+{
+    <p>First Name: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>;
+    <p>Adress State: @Html.DropDownListFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State, Model.States)</p>
+    <p>Position: @Html.DropDownListFor(m => m.ApplicationInfo.Position.PositionId, Model.Positions)</p>
+    <p>Education Degree: @Html.DropDownListFor(m => m.ApplicationInfo.Education, Model.Degrees)</p>
+    <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
+    <button class="btn btn-primary">Submit</button>   
+}
+

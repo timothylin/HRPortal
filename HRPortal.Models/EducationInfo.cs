@@ -10,7 +10,7 @@ namespace HRPortal.Models
 {
     public class EducationInfo
     {
-        public DegreeType Degree { get; set; }
+        public Degree Degree { get; set; }
         public string Institution { get; set; }
         public Address Location { get; set; }
         public DateTime? StartDate { get; set; }
@@ -20,7 +20,7 @@ namespace HRPortal.Models
 
         public EducationInfo()
         {
-            Degree = DegreeType.Unknown;
+            Degree = new Degree();
             Location = new Address();
         }
     }

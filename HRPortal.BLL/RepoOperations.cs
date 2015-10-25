@@ -86,5 +86,18 @@ namespace HRPortal.BLL
             
         }
 
+
+        //Find out list of States
+        public List<State> ReturnListOfStates()
+        {
+            return _repo.GetListOfStates();
+        } 
+
+        //Find out List of Positions available
+        public List<Position> ReturnListOfPositions()
+        {
+            return _repo.GetListOfPositions();
+        } 
+
     }
 }

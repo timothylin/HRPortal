@@ -6,7 +6,16 @@
 
 <h2>Welcome to the Application Page!</h2>
 
-@using (Html.BeginForm("SubmitApp", "Applicant", FormMethod.Post))
+<div>
+    <!--may add ID to null-->
+    @Html.ActionLink("Create A New Application", "CreateApp", "Applicant", null, new { @class = "btn btn-primary" })
+</div>
+<br />
+<div>
+    @Html.ActionLink("Edit An Application", "EditApp", "Applicant", null, new { @class = "btn btn-primary" })
+</div>
+
+@*@using (Html.BeginForm("SubmitApp", "Applicant", FormMethod.Post))
 {
         @Html.HiddenFor(a => a.AppId, new { @class = "form-control" })
 
@@ -61,5 +70,5 @@
     </div>
 
     <button class="btn btn-primary">Submit</button>
-}
+}*@
 

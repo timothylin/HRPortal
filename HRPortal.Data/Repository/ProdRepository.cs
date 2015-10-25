@@ -28,5 +28,15 @@ namespace HRPortal.Data.Repository
         {
             throw new NotImplementedException();
         }
+
+        public List<Position> GetListOfPositions()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<State> GetListOfStates()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

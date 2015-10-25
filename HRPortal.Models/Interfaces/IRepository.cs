@@ -11,5 +11,8 @@ namespace HRPortal.Models.Interfaces
         List<Application> GetAll();
         void Add(Application newApp);
         Application GetById(int id);
+
+        List<State> GetListOfStates();
+        List<Position> GetListOfPositions();
     }
 }

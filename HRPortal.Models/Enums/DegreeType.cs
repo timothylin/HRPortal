@@ -1,4 +1,10 @@
-﻿namespace HRPortal.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HRPortal.Models.Enums
 {
     public enum DegreeType
     {
@@ -9,7 +15,7 @@
         MS,
         Associates,
         GED,
-        HighSChool,
+        HighSchool,
         MD,
         PhD,
         DDS,

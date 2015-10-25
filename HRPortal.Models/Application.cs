@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,8 @@ namespace HRPortal.Models
         public List<Experience> Experiences { get; set; }
         public List<EducationInfo> Education { get; set; }
         public int DesiredSalary { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime AppDate { get; set; }
 
         public Application()
