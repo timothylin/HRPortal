@@ -36,7 +36,12 @@ namespace HRPortal.UI.Controllers
         [HttpPost]
         public ActionResult CreateApp(CreateAppVM newAppInfo)
         {
-            return View("Confirmation", newAppInfo.ApplicationInfo);
+            if (ModelState.IsValid)
+            {
+                return View("Confirmation", newAppInfo.ApplicationInfo);
+            }
+
+            return View();
         }
     }
 }

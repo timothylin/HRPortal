@@ -8,10 +8,44 @@
 
 @using (Html.BeginForm("CreateApp", "Applicant", FormMethod.Post))
 {
-    <p>First Name: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>;
-    <p>Adress State: @Html.DropDownListFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State, Model.States)</p>
-    <p>Position: @Html.DropDownListFor(m => m.ApplicationInfo.Position.PositionId, Model.Positions)</p>
-    <p>Education Degree: @Html.DropDownListFor(m => m.ApplicationInfo.Education, Model.Degrees)</p>
+    @Html.HiddenFor(m => m.ApplicationInfo.AppId)
+    @Html.ValidationSummary(true)
+
+    /*Contact Info*/
+    <p>Prefix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Prefix)</p>
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
+    <p>First Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName)</p>
+    <p>Last Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName)</p>
+    <p>Suffix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Suffix)</p>
+
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Email.EmailAddress)</p>
+    <p>Email*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Email.EmailAddress)</p>
+    /*Set Email Type*/
+
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Phone.Number)</p>
+    <p>Phone Number*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Phone.Number)</p>
+    /*Set Phone Type*/
+
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
+    <p>Address Line 1*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
+    <p>Address Line 2: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine2)</p>
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City)</p>
+    <p>City*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City)</p>
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City)</p>
+    //<p>State*: @Html.DropDownListFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State, Model.States)</p>
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
+    <p>Zipcode*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
+    /*Set Address Type*/
+
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.Position)</p>
+    //<p>Desired Position*: @Html.DropDownListFor(m => m.ApplicationInfo.Position.PositionId, Model.Positions)</p>
+    
+    //<p>Education Degree: @Html.DropDownListFor(m => m.ApplicationInfo.Education, Model.Degrees)</p>
+
+    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>
+    <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
+
     <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
     <button class="btn btn-primary">Submit</button>   
 }

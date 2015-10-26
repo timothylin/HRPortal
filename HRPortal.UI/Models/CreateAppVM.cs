@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Hosting;
@@ -9,7 +10,7 @@ using HRPortal.Models.Enums;
 
 namespace HRPortal.UI.Models
 {
-    public class CreateAppVM
+    public class CreateAppVM : IValidatableObject
     {
         public Application ApplicationInfo { get; set; }
 
@@ -43,16 +44,6 @@ namespace HRPortal.UI.Models
 
                 Degrees.Add(newItem);
             }
-
-            //for (int d = 0; d < 12; d++)
-            //{
-            //    DegreeType degreeType = (DegreeType)d;
-            //    var newItem = new SelectListItem();
-            //    newItem.Text = degreeType.ToString();
-            //    newItem.Value = degreeType.ToString();
-
-            //    Degrees.Add(newItem);
-            //}
         }
 
         public void CreatePositionsList(List<Position> listOfPositions)
@@ -69,5 +60,23 @@ namespace HRPortal.UI.Models
             }
         }
 
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            List<ValidationResult> errors = new List<ValidationResult>();
+
+            if (string.IsNullOrEmpty(ApplicationInfo.ApplicantContactInfo.FirstName))
+            {
+                errors.Add(new ValidationResult("Please enter your first name...", new[] { "ApplicationInfo.ApplicantContactInfo.FirstName" }));
+            }
+
+            if (string.IsNullOrEmpty(ApplicationInfo.ApplicantContactInfo.LastName))
+            {
+                errors.Add(new ValidationResult("Please enter your last name...", new[] { "ApplicationInfo.ApplicantContactInfo.LastName" }));
+            }
+
+
+            return errors;
+        } 
     }
 }

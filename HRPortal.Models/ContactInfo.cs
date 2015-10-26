@@ -17,5 +17,14 @@ namespace HRPortal.Models
         public Email Email { get; set; }
         public PhoneNumber Phone { get; set; }
         public Address Address { get; set; }
+
+
+        public ContactInfo()
+        {
+            Email = new Email("", "Home");
+            Phone = new PhoneNumber("", PhoneType.Home);
+            Address = new Address();
+        }
     }
+
 }
