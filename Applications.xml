@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications>
+	<app>
+		<appid>1</appid>
+		<firstname>Dean</firstname>
+		<lastname>Choi</lastname>
+		<middleinitial>J</middleinitial>
+		<prefix>Mr.</prefix>
+		<suffix></suffix>
+		
+		<email>
+			<emailaddress>deanchoi@gmail.com</emailaddress>
+			<emailtype>Personal</emailtype>
+		</email>
+		
+		<phonenumber>
+			<number>440-263-5132</number>
+			<phonetype>Cell</phonetype>
+		</phonenumber>
+		
+		<address>
+			<addressline1>8993 Crooked Creek Ln</addressline1>
+			<addressline2></addressline2>
+			<city>Broadview Heights</city>
+			<state>
+				<statename>Ohio</statename>
+				<stateabbreviation>OH</stateabbreviation>
+			</state>
+			<zipcode>44147</zipcode>
+			<addresstype>Home</addresstype>
+		</address>	
+			
+		<position>
+			<positionid>1</positionid>
+			<positionname>Manager</positionname>
+			<description>Manager of The Guild</description>
+			<posteddate>10-01-2015</posteddate>
+			<closingdate>12-01-2015</closingdate>
+		</position>
+		
+		<experience>
+			<company>NIH</company>
+			<title>IRTA</title>
+			<startdate>09-01-2009</startdate>
+			<enddate>07-01-2010</enddate>
+			<location>
+				<city>Bethesda</city>
+				<state>
+					<statename>Maryland</statename>
+					<stateabbreviation>MD</stateabbreviation>
+				</state>
+			</location>
+			<description>Post-bac researcher in neuroscience</description>
+			<supervisorinfo>
+				<firstname>Ted</firstname>
+				<lastname>Usind</lastname>
+				<email>
+					<emailaddress>tedusdin@nih.gov</emailaddress>
+					<emailtype>Work</emailtype>
+				</email>
+				<phonenumber>
+					<number>215-867-5309</number>
+					<phonetype>Work</phonetype>
+				</phonenumber>
+			</supervisorinfo>
+		</experience>
+		
+		<experience>
+			<company>The Software Guild</company>
+			<title>.NET Apprentice</title>
+			<startdate>09-01-2015</startdate>
+			<enddate>12-11-2015</enddate>
+			<location>
+				<city>Akron</city>
+				<state>
+					<statename>Ohio</statename>
+					<stateabbreviation>OH</stateabbreviation>
+				</state>
+			</location>
+			<description>Coding dank things</description>
+			<supervisorinfo>
+				<firstname>Victor</firstname>
+				<lastname>Pudelski</lastname>
+				<email>
+					<emailaddress>victorpudelski@thesoftwareguild.com</emailaddress>
+					<emailtype>Work</emailtype>
+				</email>
+				<phonenumber>
+					<number>215-867-5309</number>
+					<phonetype>Work</phonetype>
+				</phonenumber>
+			</supervisorinfo>
+		</experience>
+		
+		<education>
+			<degree>BS</degree>
+			<instituition>Duke University</instituition>
+			<location>
+				<city>Durham</city>
+				<state>
+					<statename>North Carolina</statename>
+					<stateabbreviation>NC</stateabbreviation>
+				</state>
+			</location>
+			<startdate>08-01-2005</startdate>
+			<graduationdate>05-15-2009</graduationdate>
+			<gpa>3.75</gpa>
+			<concentration>Biology &amp; Chemistry</concentration>
+		</education>
+		
+		<desiredsalary>100000</desiredsalary>
+		<appdate>10-25-2015</appdate>
+		
+	</app>
+	
+	
+</applications>
