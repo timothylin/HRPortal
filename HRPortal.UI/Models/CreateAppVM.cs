@@ -35,15 +35,24 @@ namespace HRPortal.UI.Models
         {
             Degrees = new List<SelectListItem>();
 
-            for (int d = 0; d < 12; d++)
+            foreach (var d in Enum.GetValues(typeof(DegreeType)))
             {
-                DegreeType degreeType = (DegreeType)d;
                 var newItem = new SelectListItem();
-                newItem.Text = degreeType.ToString();
-                newItem.Value = degreeType.ToString();
+                newItem.Text = d.ToString();
+                newItem.Value = d.ToString();
 
                 Degrees.Add(newItem);
             }
+
+            //for (int d = 0; d < 12; d++)
+            //{
+            //    DegreeType degreeType = (DegreeType)d;
+            //    var newItem = new SelectListItem();
+            //    newItem.Text = degreeType.ToString();
+            //    newItem.Value = degreeType.ToString();
+
+            //    Degrees.Add(newItem);
+            //}
         }
 
         public void CreatePositionsList(List<Position> listOfPositions)
