@@ -16,6 +16,8 @@ namespace HRPortal.Models
         public Position Position { get; set; }
         public List<Experience> Experiences { get; set; }
         public List<EducationInfo> Education { get; set; }
+
+        [DataType(DataType.Currency)]
         public int DesiredSalary { get; set; }
 
         [DataType(DataType.Date)]
