@@ -1,4 +1,4 @@
-﻿@model HRPortal.Models.Application
+﻿@model HRPortal.Models.Resume
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,11 @@
 </div>
 <br />
 <div>
-    @Html.ActionLink("Edit An Application", "EditApp", "Applicant", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Edit An Application", "EditApp", "Applicant", null, new {@class = "btn btn-primary"})
+</div>
+<br/>
+<div>
+    @Html.ActionLink("Add State", "AddState", "Applicant", null, new { @class = "btn btn-primary"})
 </div>
 
 @*@using (Html.BeginForm("SubmitApp", "Applicant", FormMethod.Post))

@@ -33,7 +33,7 @@ namespace HRPortal.UI.Models
             {
                 var newItem = new SelectListItem();
                 newItem.Text = s.StateAbbreviation;
-                newItem.Value = s.StateAbbreviation;
+                newItem.Value = s.StateName;
 
                 States.Add(newItem);
             }

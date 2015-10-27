@@ -19,7 +19,7 @@ namespace HRPortal.Models
         public string Email { get; set; }
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-        
+
         public Address Address { get; set; }
 
         public ContactInfo()
