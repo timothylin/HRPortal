@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,15 +15,15 @@ namespace HRPortal.Models
         public string Prefix { get; set; }
         public string Suffix { get; set; }
 
-        public Email Email { get; set; }
-        public PhoneNumber Phone { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+        
         public Address Address { get; set; }
-
 
         public ContactInfo()
         {
-            Email = new Email("", "Home");
-            Phone = new PhoneNumber("", PhoneType.Home);
             Address = new Address();
         }
     }

@@ -46,11 +46,9 @@
     <Compile Include="ContactInfo.cs" />
     <Compile Include="Degree.cs" />
     <Compile Include="EducationInfo.cs" />
-    <Compile Include="Email.cs" />
     <Compile Include="Enums\DegreeType.cs" />
     <Compile Include="Experience.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="PhoneNumber.cs" />
     <Compile Include="Enums\PhoneType.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
