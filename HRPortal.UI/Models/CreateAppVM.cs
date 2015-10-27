@@ -18,6 +18,13 @@ namespace HRPortal.UI.Models
         public List<SelectListItem> Degrees { get; set; }
         public List<SelectListItem> Positions { get; set; }
 
+
+        public void CreateAppWM()
+        {
+            ApplicationInfo = new Application();
+            
+        }
+
         public void CreateStateList(List<State> listOfStates)
         {
             States = new List<SelectListItem>();
@@ -26,7 +33,7 @@ namespace HRPortal.UI.Models
             {
                 var newItem = new SelectListItem();
                 newItem.Text = s.StateAbbreviation;
-                newItem.Value = s.StateName;
+                newItem.Value = s.StateAbbreviation;
 
                 States.Add(newItem);
             }

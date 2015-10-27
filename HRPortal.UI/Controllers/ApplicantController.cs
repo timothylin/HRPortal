@@ -38,7 +38,7 @@ namespace HRPortal.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("Confirmation", newAppInfo.ApplicationInfo);
+                return View("Confirmation", newAppInfo);
             }
 
             return View();

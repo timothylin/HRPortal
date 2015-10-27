@@ -124,7 +124,7 @@ namespace HRPortal.Data.Repository
                 new Position()
                 {
                     PositionId = 4,
-                    PositionName = "Victor",
+                    PositionName = "New Victor",
                     Description = "The \"New\" Victor of The Guild",
                     PostedDate = DateTime.Parse("10/01/2015"),
                     ClosingDate = DateTime.Parse("12/01/2015")
