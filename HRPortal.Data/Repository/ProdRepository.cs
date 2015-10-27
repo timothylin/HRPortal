@@ -14,17 +14,17 @@ namespace HRPortal.Data.Repository
         //var rootPath = Server.MapPath("~/");
 
         
-        public void Add(Application newApp)
+        public void Add(Resume newApp)
         {
             throw new NotImplementedException();
         }
 
-        public List<Application> GetAll()
+        public List<Resume> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Application GetById(int id)
+        public Resume GetById(int id)
         {
             throw new NotImplementedException();
         }

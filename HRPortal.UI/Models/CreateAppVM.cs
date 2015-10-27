@@ -12,7 +12,7 @@ namespace HRPortal.UI.Models
 {
     public class CreateAppVM : IValidatableObject
     {
-        public Application ApplicationInfo { get; set; }
+        public Resume ApplicationInfo { get; set; }
 
         public List<SelectListItem> States { get; set; }
         public List<SelectListItem> Degrees { get; set; }
@@ -21,7 +21,7 @@ namespace HRPortal.UI.Models
 
         public void CreateAppWM()
         {
-            ApplicationInfo = new Application();
+            ApplicationInfo = new Resume();
             
         }
 

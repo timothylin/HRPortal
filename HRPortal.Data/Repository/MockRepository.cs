@@ -10,24 +10,24 @@ namespace HRPortal.Data.Repository
 {
     public class MockRepository : IRepository
     {
-        public List<Application> AppsList { get; set; }
+        public List<Resume> AppsList { get; set; }
 
         public MockRepository()
         {
-            AppsList = new List<Application>();
+            AppsList = new List<Resume>();
         } 
 
-        public List<Application> GetAll()
+        public List<Resume> GetAll()
         {
             return AppsList;
         }
 
-        public Application GetById(int id)
+        public Resume GetById(int id)
         {
             return AppsList.FirstOrDefault(a => a.AppId == id);
         }
 
-        public void Add(Application newApp)
+        public void Add(Resume newApp)
         {
             AppsList.Add(newApp);
         }

@@ -63,7 +63,7 @@ namespace HRPortal.BLL
 
 
         //Add new application
-        public Response AddAppToRepo(Application newApp)
+        public Response AddAppToRepo(Resume newApp)
         {
             _repo.Add(newApp);
 

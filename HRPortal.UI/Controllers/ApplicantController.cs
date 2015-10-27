@@ -23,7 +23,7 @@ namespace HRPortal.UI.Controllers
         public ActionResult CreateApp()
         {
             var newApplication = new CreateAppVM();
-            newApplication.ApplicationInfo = new Application();
+            newApplication.ApplicationInfo = new Resume();
             newApplication.CreatePositionsList(_rops.ReturnListOfPositions());
             newApplication.CreateStateList(_rops.ReturnListOfStates());
             newApplication.CreateDegreesList();

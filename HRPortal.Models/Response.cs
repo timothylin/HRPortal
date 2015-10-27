@@ -11,13 +11,13 @@ namespace HRPortal.Models
         public bool Success { get; set; }
         public string Message { get; set; }
 
-        public Application Application { get; set; }
-        public List<Application> ApplicationsList { get; set; } 
+        public Resume Application { get; set; }
+        public List<Resume> ApplicationsList { get; set; } 
 
         public Response()
         {
-            Application = new Application();
-            ApplicationsList = new List<Application>();
+            Application = new Resume();
+            ApplicationsList = new List<Resume>();
         }
     }
 }

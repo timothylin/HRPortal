@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="Application.cs" />
+    <Compile Include="Resume.cs" />
     <Compile Include="ContactInfo.cs" />
     <Compile Include="Degree.cs" />
     <Compile Include="EducationInfo.cs" />
