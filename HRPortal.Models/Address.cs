@@ -13,7 +13,7 @@ namespace HRPortal.Models
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
-        public string StateAbbr { get; set; }
+        public string State { get; set; }
 
         [DataType(DataType.PostalCode)]
         public string Zipcode { get; set; }

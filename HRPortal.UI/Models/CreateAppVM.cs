@@ -19,15 +19,18 @@ namespace HRPortal.UI.Models
         public List<SelectListItem> Positions { get; set; }
 
 
-        public void CreateAppWM()
+        public CreateAppVM()
         {
             ApplicationInfo = new Resume();
-            
+            States = new List<SelectListItem>();
+            Degrees = new List<SelectListItem>();
+            Positions = new List<SelectListItem>();
+
         }
 
         public void CreateStateList(List<State> listOfStates)
         {
-            States = new List<SelectListItem>();
+
 
             foreach (var s in listOfStates)
             {
@@ -41,7 +44,7 @@ namespace HRPortal.UI.Models
 
         public void CreateDegreesList()
         {
-            Degrees = new List<SelectListItem>();
+
 
             foreach (var d in Enum.GetValues(typeof(DegreeType)))
             {
@@ -55,7 +58,7 @@ namespace HRPortal.UI.Models
 
         public void CreatePositionsList(List<Position> listOfPositions)
         {
-            Positions = new List<SelectListItem>();
+
 
             foreach (var p in listOfPositions)
             {
@@ -84,6 +87,6 @@ namespace HRPortal.UI.Models
 
 
             return errors;
-        } 
+        }
     }
 }
