@@ -139,6 +139,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Applicant\Index.cshtml" />
     <Content Include="Views\Applicant\CreateApp.cshtml" />
+    <Content Include="Views\Applicant\Confirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

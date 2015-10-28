@@ -35,12 +35,16 @@ namespace HRPortal.UI.Controllers
         [HttpPost]
         public ActionResult CreateApp(CreateAppVM newAppInfo)
         {
+            newAppInfo.CreateStateList(_rops.ReturnListOfStates());
+            newAppInfo.CreatePositionsList(_rops.ReturnListOfPositions());
+            newAppInfo.CreateDegreesList();
+
             if (ModelState.IsValid)
             {
                 return View("Confirmation", newAppInfo);
             }
 
-            return View();
+            return View(newAppInfo);
         }
     }
 }
