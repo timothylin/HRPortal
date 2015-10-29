@@ -13,6 +13,8 @@ namespace HRPortal.UI.Models
     public class CreateAppVM : IValidatableObject
     {
         public Resume ApplicationInfo { get; set; }
+        public int ExperienceItems { get; set; }
+        public int EducationItems { get; set; }
 
         public List<SelectListItem> States { get; set; }
         public List<SelectListItem> Degrees { get; set; }
@@ -64,7 +66,7 @@ namespace HRPortal.UI.Models
             {
                 var newItem = new SelectListItem();
                 newItem.Text = p.PositionName;
-                newItem.Value = p.PositionId.ToString();
+                newItem.Value = p.PositionName;
 
                 Positions.Add(newItem);
             }

@@ -28,6 +28,9 @@ namespace HRPortal.UI.Controllers
             newApplication.CreateStateList(_rops.ReturnListOfStates());
             newApplication.CreateDegreesList();
 
+            Experience newExp = new Experience();
+            newApplication.ApplicationInfo.Experiences.Add(newExp);
+
             return View(newApplication);
 
         }

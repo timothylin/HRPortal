@@ -40,7 +40,19 @@
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.Position)</p>
     <p>Desired Position*: @Html.DropDownListFor(m => m.ApplicationInfo.Position.PositionId, Model.Positions)</p>
+
+    <p>@Html.LabelFor(m => m.ApplicationInfo.Experiences)</p>
+    <p>Company: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].Company)</p>
+    <p>Title: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].Title)</p>
+    <p>City: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].Location.City)</p>
+    <p>State: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].Location.State)</p>
+    <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].StartDate)</p>
+    <p>End Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].EndDate)</p>
+    <p>Supervisor Name: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].SupervisorName)</p>
+    <p>Supervisor Phone Number: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].SupervisorPhone)</p>
+    <p>Supervisor Email: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].SupervisorEmail)</p>
     
+
     //<p>Education Degree: @Html.DropDownListFor(m => m.ApplicationInfo.Education, Model.Degrees)</p>
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>

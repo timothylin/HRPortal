@@ -17,12 +17,15 @@ namespace HRPortal.Models
         public DateTime? EndDate { get; set; }
         public Address Location { get; set; }
         public string Description { get; set; }
-        public ContactInfo SupervisorInfo { get; set; }
+        public string SupervisorName { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string SupervisorPhone { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string SupervisorEmail { get; set; }
 
         public Experience()
         {
             Location = new Address();
-            SupervisorInfo = new ContactInfo();
         }
     }
 }
