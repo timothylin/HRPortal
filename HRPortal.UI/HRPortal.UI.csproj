@@ -93,6 +93,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DirectApply.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -140,6 +141,8 @@
     <Content Include="Views\Applicant\Index.cshtml" />
     <Content Include="Views\Applicant\CreateApp.cshtml" />
     <Content Include="Views\Applicant\Confirmation.cshtml" />
+    <Content Include="Views\Shared\_LayoutDirectApply.cshtml" />
+    <Content Include="Views\Applicant\DirectApply.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

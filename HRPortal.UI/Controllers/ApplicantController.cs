@@ -19,6 +19,36 @@ namespace HRPortal.UI.Controllers
             return View();
         }
 
+        // GET: Direct Application
+        public ActionResult DirectApply()
+        {
+            var newApplication = new CreateAppVM();
+            newApplication.ApplicationInfo = new Resume();
+            newApplication.CreatePositionsList(_rops.ReturnListOfPositions());
+            newApplication.CreateStateList(_rops.ReturnListOfStates());
+            newApplication.CreateDegreesList();
+
+            Experience newExp = new Experience();
+            newApplication.ApplicationInfo.Experiences.Add(newExp);
+
+            return View(newApplication);
+        }
+
+        [HttpPost]
+        public ActionResult DirectApply(CreateAppVM newAppInfo)
+        {
+            newAppInfo.CreateStateList(_rops.ReturnListOfStates());
+            newAppInfo.CreatePositionsList(_rops.ReturnListOfPositions());
+            newAppInfo.CreateDegreesList();
+
+            if (ModelState.IsValid)
+            {
+                return View("Confirmation", newAppInfo);
+            }
+
+            return View(newAppInfo);
+        }
+
         // GET
         public ActionResult CreateApp()
         {
