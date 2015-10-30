@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Policy.cs" />
+    <Compile Include="PolicyCategory.cs" />
     <Compile Include="Resume.cs" />
     <Compile Include="ContactInfo.cs" />
     <Compile Include="Degree.cs" />

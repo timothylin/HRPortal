@@ -11,6 +11,7 @@ namespace HRPortal.Data.Repository
     public class MockRepository : IRepository
     {
         public List<Resume> AppsList { get; set; }
+        public List<PolicyCategory> ListofPolicyCategories { get; set; }
 
         public MockRepository()
         {
@@ -133,5 +134,60 @@ namespace HRPortal.Data.Repository
 
             return listOfPositions;
         }
+
+        public List<PolicyCategory> GetListOfCategories()
+        {
+            ListofPolicyCategories = new List<PolicyCategory>
+            {
+                new PolicyCategory()
+                {
+                    Category = "Attendance",
+                    CategoryNumber = 1
+                },
+                new PolicyCategory()
+                {
+                    Category = "Benefits",
+                    CategoryNumber = 2
+                },
+                new PolicyCategory()
+                {
+                    Category = "Code of Conduct",
+                    CategoryNumber = 3
+                },
+                new PolicyCategory()
+                {
+                    Category = "Dress Code",
+                    CategoryNumber = 4
+                },
+                new PolicyCategory()
+                {
+                    Category = "Time Off",
+                    CategoryNumber = 5
+                },
+                new PolicyCategory()
+                {
+                    Category = "Training",
+                    CategoryNumber = 6
+                }
+            };
+            return ListofPolicyCategories;
+        }
+
+        public List<Policy> GetListOfPolicies()
+        {
+            var listOfPolicies = new List<Policy>
+            {
+                new Policy()
+                {
+                    Title = "Sexual Harrassment",
+                    Category = new PolicyCategory()
+                    {
+                        Category = "Code of Conduct"
+                    },
+
+                }
+            };
+            return listOfPolicies;
+        } 
     }
 }
