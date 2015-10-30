@@ -30,6 +30,8 @@ namespace HRPortal.UI.Controllers
 
             Experience newExp = new Experience();
             newApplication.ApplicationInfo.Experiences.Add(newExp);
+            EducationInfo newEdu = new EducationInfo();
+            newApplication.ApplicationInfo.Education.Add(newEdu);
 
             return View(newApplication);
         }
@@ -60,6 +62,8 @@ namespace HRPortal.UI.Controllers
 
             Experience newExp = new Experience();
             newApplication.ApplicationInfo.Experiences.Add(newExp);
+            EducationInfo newEdu = new EducationInfo();
+            newApplication.ApplicationInfo.Education.Add(newEdu);
 
             return View(newApplication);
 
