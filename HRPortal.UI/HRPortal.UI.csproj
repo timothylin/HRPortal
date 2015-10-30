@@ -126,6 +126,7 @@
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
+    <Compile Include="Controllers\SecureApplyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,9 +143,9 @@
     <Content Include="Views\Applicant\Index.cshtml" />
     <Content Include="Views\Applicant\CreateApp.cshtml" />
     <Content Include="Views\Applicant\Confirmation.cshtml" />
-    <Content Include="Views\Shared\_LayoutDirectApply.cshtml" />
-    <Content Include="Views\Applicant\DirectApply.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\SecureApply\_LayoutSecureApply.cshtml" />
+    <Content Include="Views\SecureApply\SecureApply.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
