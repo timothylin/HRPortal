@@ -1,12 +1,13 @@
 ﻿@model HRPortal.UI.Models.CreateAppVM
 
 @{
-    ViewBag.Title = "CreateApp";
+    ViewBag.Title = "DirectApply";
+    Layout = "~/Views/Shared/_LayoutDirectApply.cshtml";
 }
 
-<h2>Submit a New Application</h2>
+<h2>Submit your application here!!</h2>
 
-@using (Html.BeginForm("CreateApp", "Applicant", FormMethod.Post))
+@using (Html.BeginForm("DirectApply", "Applicant", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.ApplicationInfo.AppId)
     @Html.ValidationSummary(true)
@@ -51,7 +52,7 @@
     <p>Supervisor Name: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].SupervisorName)</p>
     <p>Supervisor Phone Number: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].SupervisorPhone)</p>
     <p>Supervisor Email: @Html.EditorFor(m => m.ApplicationInfo.Experiences[0].SupervisorEmail)</p>
-    
+
 
     //<p>Education Degree: @Html.DropDownListFor(m => m.ApplicationInfo.Education, Model.Degrees)</p>
 
@@ -59,6 +60,5 @@
     <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
 
     <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
-    <button class="btn btn-primary">Submit</button>   
+    <button class="btn btn-primary">Submit</button>
 }
-
