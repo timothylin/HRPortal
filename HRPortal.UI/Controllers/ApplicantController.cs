@@ -75,6 +75,7 @@ namespace HRPortal.UI.Controllers
             newAppInfo.CreateStateList(_rops.ReturnListOfStates());
             newAppInfo.CreatePositionsList(_rops.ReturnListOfPositions());
             newAppInfo.CreateDegreesList();
+            
 
             if (ModelState.IsValid)
             {

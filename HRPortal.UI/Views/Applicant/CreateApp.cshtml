@@ -21,11 +21,9 @@
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Email)</p>
     <p>Email*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Email)</p>
-    /*Set Email Type*/
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.PhoneNumber)</p>
     <p>Phone Number*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.PhoneNumber)</p>
-    /*Set Phone Type*/
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
     <p>Address Line 1*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
@@ -36,27 +34,38 @@
     <p>State*: @Html.DropDownListFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State, Model.States)</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
     <p>Zipcode*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
-    /*Set Address Type*/
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.Position.PositionName)</p>
     <p>Desired Position*: @Html.DropDownListFor(m => m.ApplicationInfo.Position.PositionName, Model.Positions)</p>
 
     <p>@Html.LabelFor(m => m.ApplicationInfo.Experiences)</p>
-    <p>@foreach (var exp in Model.ApplicationInfo.Experiences)
+    <p>
+        @for (var i = 0; i < 1; i++)
+        {
+            <p>Company: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Company)</p>
+            <p>Title: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Title)</p>
+            <p>City: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Location.City)</p>
+            <p>State: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Location.State)</p>
+            <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].StartDate)</p>
+            <p>End Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].EndDate)</p>
+            <p>Supervisor Name: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorName)</p>
+            <p>Supervisor Phone Number: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorPhone)</p>
+            <p>Supervisor Email: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorEmail)</p>
+        }</p>
+
+    <p>@Html.LabelFor(m => m.ApplicationInfo.Education)</p>
+    <p>@for (var i = 0; i < 1; i++)
        {
-           <p>Company: @Html.EditorFor(m => exp.Company)</p>
-           <p>Title: @Html.EditorFor(m => exp.Title)</p>
-           <p>City: @Html.EditorFor(m => exp.Location.City)</p>
-           <p>State: @Html.EditorFor(m => exp.Location.State)</p>
-           <p>Start Date: @Html.EditorFor(m => exp.StartDate)</p>
-           <p>End Date: @Html.EditorFor(m => exp.EndDate)</p>
-           <p>Supervisor Name: @Html.EditorFor(m => exp.SupervisorName)</p>
-           <p>Supervisor Phone Number: @Html.EditorFor(m => exp.SupervisorPhone)</p>
-           <p>Supervisor Email: @Html.EditorFor(m => exp.SupervisorEmail)</p>
-       }</p>
-
-
-    //<p>Education Degree: @Html.DropDownListFor(m => m.ApplicationInfo.Education, Model.Degrees)</p>
+           <p>Degree Type: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Degree.DegreeAbbr, Model.Degrees)</p>
+           <p>Institution Name: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Institution)</p>
+           <p>City: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Location.City)</p>
+           <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Location.State, Model.States)</p>
+           <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].StartDate)</p>
+           <p>Graduation Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GraduationDate)</p>
+           <p>GPA: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GPA)</p>
+           <p>Concentration: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Concentration)</p>
+       }
+    </p>
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>
     <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
