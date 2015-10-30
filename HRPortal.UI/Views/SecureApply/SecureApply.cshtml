@@ -1,13 +1,13 @@
 ﻿@model HRPortal.UI.Models.CreateAppVM
 
 @{
-    ViewBag.Title = "DirectApply";
-    Layout = "~/Views/Shared/_LayoutDirectApply.cshtml";
+    ViewBag.Title = "SecureApply";
+    Layout = "~/Views/SecureApply/_LayoutSecureApply.cshtml";
 }
 
-<h2>Submit your application here!!</h2>
+<h2>Submit your secure application here!!</h2>
 
-@using (Html.BeginForm("DirectApply", "Applicant", FormMethod.Post))
+@using (Html.BeginForm("SecureApply", "SecureApply", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.ApplicationInfo.AppId)
     @Html.ValidationSummary(true)

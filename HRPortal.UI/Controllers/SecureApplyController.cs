@@ -9,18 +9,18 @@ using HRPortal.UI.Models;
 
 namespace HRPortal.UI.Controllers
 {
-    public class ApplicantController : Controller
+    public class SecureApplyController : Controller
     {
         private RepoOperations _rops = new RepoOperations();
 
-        // GET: Applicant
+        // GET: SecureApply
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET
-        public ActionResult CreateApp()
+        // GET: Direct Application
+        public ActionResult SecureApply()
         {
             var newApplication = new CreateAppVM();
             newApplication.ApplicationInfo = new Resume();
@@ -34,11 +34,10 @@ namespace HRPortal.UI.Controllers
             newApplication.ApplicationInfo.Education.Add(newEdu);
 
             return View(newApplication);
-
         }
 
         [HttpPost]
-        public ActionResult CreateApp(CreateAppVM newAppInfo)
+        public ActionResult SecureApply(CreateAppVM newAppInfo)
         {
             newAppInfo.CreateStateList(_rops.ReturnListOfStates());
             newAppInfo.CreatePositionsList(_rops.ReturnListOfPositions());
@@ -46,7 +45,7 @@ namespace HRPortal.UI.Controllers
 
             if (ModelState.IsValid)
             {
-                return View("Confirmation", newAppInfo);
+                return View("Confirmation", newAppInfo.ApplicationInfo);
             }
 
             return View(newAppInfo);
