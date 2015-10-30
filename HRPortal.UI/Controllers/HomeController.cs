@@ -18,5 +18,10 @@ namespace HRPortal.UI.Controllers
         {
             return RedirectToAction("Index", "Applicant");
         }
+
+        public ActionResult Admin()
+        {
+            return RedirectToAction("Index", "Admin");
+        }
     }
 }
