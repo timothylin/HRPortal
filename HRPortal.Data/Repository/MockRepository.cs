@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace HRPortal.Data.Repository
         public MockRepository()
         {
             AppsList = new List<Resume>();
+            InitializeMockResumeList();
         } 
 
         public List<Resume> GetAll()
@@ -92,6 +94,83 @@ namespace HRPortal.Data.Repository
             };
 
             return listOfStates;
+        }
+
+        public void InitializeMockResumeList()
+        {
+            Resume newApp = new Resume()
+            {
+                AppId = 1,
+                ApplicantContactInfo = new ContactInfo()
+                {
+                    FirstName = "Dean",
+                    LastName = "Choi",
+                    MiddleInitial = "J",
+                    Prefix = "Mr.",
+                    Email = "deanchoi@gmail.com",
+                    PhoneNumber = "440-263-5132",
+                    Address = new Address()
+                    {
+                        AddressLine1 = "8993 Crooked Creek Ln",
+                        City = "Broadview Heights",
+                        State = "OH",
+                        Zipcode = "44147"
+                    }
+                },
+                Position = new Position()
+                {
+                    PositionId = 4,
+                    PositionName = "New Victor",
+                    Description = "The \"New\" Victor of The Guild",
+                    PostedDate = DateTime.Parse("10/01/2015"),
+                    ClosingDate = DateTime.Parse("12/01/2015")
+                },
+                Experiences = new List<Experience>()
+                {
+                    new Experience()
+                    {
+                        Company = "National Institues of Health",
+                        Title = "Post-bac IRTA",
+                        StartDate = DateTime.Parse("08/01/2009"),
+                        EndDate = DateTime.Parse("07/01/2010"),
+                        Location = new Address()
+                        {
+                            City = "Bethesda",
+                            State = "MD"
+                        },
+                        Description = "Neuroscience Researcher on TIP39 at the NIMH.",
+                        SupervisorName = "Ted Usdin, MD-PhD",
+                        SupervisorPhone = "202-867-5309",
+                        SupervisorEmail = "tedusdin@nih.gov"
+                    }
+                },
+                Education = new List<EducationInfo>()
+                {
+                    new EducationInfo()
+                    {
+                        Degree = new Degree()
+                        {
+                            DegreeAbbr = "B.S.",
+                            DegreeName = "Bachelor's of Science"
+                        },
+                        Institution = "Duke University",
+                        Location = new Address()
+                        {
+                            City = "Durham",
+                            State = "NC"
+                        },
+                        StartDate = DateTime.Parse("08/01/2005"),
+                        GraduationDate = DateTime.Parse("05/15/2009"),
+                        GPA = 3.75M,
+                        Concentration = "Biology & Chemistry"
+                    }
+                },
+                DesiredSalary = 100000,
+                AppDate = DateTime.Parse("10/31/2015")
+            };
+
+            AppsList.Add(newApp);
+
         }
 
         public List<Position> GetListOfPositions()

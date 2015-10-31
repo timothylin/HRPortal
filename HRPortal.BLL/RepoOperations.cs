@@ -87,6 +87,15 @@ namespace HRPortal.BLL
         }
 
 
+        //Determine highest AppID number (problem with null if no applications in the list **MUST FIX)
+        public int HighestAppIDNum()
+        {
+            var allApps = _repo.GetAll();
+            var maxAppID = allApps.Max(a => a.AppId);
+            return maxAppID;
+        }
+
+
         //Find out list of States
         public List<State> ReturnListOfStates()
         {

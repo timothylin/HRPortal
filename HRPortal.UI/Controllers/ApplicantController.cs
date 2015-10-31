@@ -33,6 +33,8 @@ namespace HRPortal.UI.Controllers
             EducationInfo newEdu = new EducationInfo();
             newApplication.ApplicationInfo.Education.Add(newEdu);
 
+            newApplication.ApplicationInfo.AppId = _rops.HighestAppIDNum() + 1;
+
             return View(newApplication);
 
         }
@@ -47,7 +49,9 @@ namespace HRPortal.UI.Controllers
 
             if (ModelState.IsValid)
             {
-                return View("Confirmation", newAppInfo);
+                _rops.AddAppToRepo(newAppInfo.ApplicationInfo);
+
+                return View("Confirmation", _rops.ViewAllApps().ApplicationsList);
             }
 
             return View(newAppInfo);
