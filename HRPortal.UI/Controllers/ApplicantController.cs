@@ -51,7 +51,7 @@ namespace HRPortal.UI.Controllers
             {
                 _rops.AddAppToRepo(newAppInfo.ApplicationInfo);
 
-                return View("Confirmation", _rops.ViewAllApps().ApplicationsList);
+                return View("Confirmation", newAppInfo.ApplicationInfo);
             }
 
             return View(newAppInfo);

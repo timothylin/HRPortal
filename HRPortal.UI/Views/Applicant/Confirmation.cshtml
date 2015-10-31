@@ -1,4 +1,4 @@
-﻿@model HRPortal.UI.Models.CreateAppVM
+﻿@model HRPortal.Models.Resume
 
 @{
     ViewBag.Title = "Confirmation";
@@ -6,20 +6,20 @@
 
 <h2>Confirmation Page</h2>
 
-<p>Prefix: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Prefix)</p>
-<p>First Name: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
-<p>Last Name: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName)</p>
-<p>Suffix: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Suffix)</p>
-<p>Email: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Email)</p>
-<p>Phone Number: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.PhoneNumber)</p>
-<p>Address Line 1: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
-<p>Address Line 2: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine2)</p>
-<p>City: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City)</p>
-<p>State: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State)</p>
-<p>Zipcode*: @Html.DisplayFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
-<p>Desired Position: @Html.DisplayFor(m => m.ApplicationInfo.Position.PositionId)</p>
-<p>Education Degree: @Html.DisplayFor(m => m.ApplicationInfo.Education[0].Degree.DegreeAbbr)</p>
-<p>Desired Salary: @Html.DisplayFor(m => m.ApplicationInfo.DesiredSalary)</p>
-<p>Date of Application: @Html.DisplayFor(m => m.ApplicationInfo.AppDate)</p>
+<p>Prefix: @Html.DisplayFor(m => m.ApplicantContactInfo.Prefix)</p>
+<p>First Name: @Html.DisplayFor(m => m.ApplicantContactInfo.FirstName)</p>
+<p>Last Name: @Html.DisplayFor(m => m.ApplicantContactInfo.LastName)</p>
+<p>Suffix: @Html.DisplayFor(m => m.ApplicantContactInfo.Suffix)</p>
+<p>Email: @Html.DisplayFor(m => m.ApplicantContactInfo.Email)</p>
+<p>Phone Number: @Html.DisplayFor(m => m.ApplicantContactInfo.PhoneNumber)</p>
+<p>Address Line 1: @Html.DisplayFor(m => m.ApplicantContactInfo.Address.AddressLine1)</p>
+<p>Address Line 2: @Html.DisplayFor(m => m.ApplicantContactInfo.Address.AddressLine2)</p>
+<p>City: @Html.DisplayFor(m => m.ApplicantContactInfo.Address.City)</p>
+<p>State: @Html.DisplayFor(m => m.ApplicantContactInfo.Address.State)</p>
+<p>Zipcode*: @Html.DisplayFor(m => m.ApplicantContactInfo.Address.Zipcode)</p>
+<p>Desired Position: @Html.DisplayFor(m => m.Position.PositionId)</p>
+<p>Education Degree: @Html.DisplayFor(m => m.Education[0].Degree.DegreeAbbr)</p>
+<p>Desired Salary: @Html.DisplayFor(m => m.DesiredSalary)</p>
+<p>Date of Application: @Html.DisplayFor(m => m.AppDate)</p>
 
 @Html.ActionLink("Return to Applicant Page", "Index", "Applicant", null, new { @class = "btn btn-primary" })

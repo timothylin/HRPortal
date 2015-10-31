@@ -12,12 +12,15 @@ namespace HRPortal.Data.Repository
     public class MockRepository : IRepository
     {
         public List<Resume> AppsList { get; set; }
-        public List<PolicyCategory> ListofPolicyCategories { get; set; }
+        public List<PolicyCategory> ListOfPolicyCategories { get; set; }
+        public List<Policy> ListOfPolicies { get; set; }
 
         public MockRepository()
         {
             AppsList = new List<Resume>();
             InitializeMockResumeList();
+            InitializePolicyCategories();
+            InitializeListOfPolicies();
         } 
 
         public List<Resume> GetAll()
@@ -214,59 +217,110 @@ namespace HRPortal.Data.Repository
             return listOfPositions;
         }
 
-        public List<PolicyCategory> GetListOfCategories()
+        public void InitializePolicyCategories()
         {
-            ListofPolicyCategories = new List<PolicyCategory>
+            ListOfPolicyCategories = new List<PolicyCategory>
             {
                 new PolicyCategory()
                 {
                     Category = "Attendance",
-                    CategoryNumber = 1
                 },
                 new PolicyCategory()
                 {
                     Category = "Benefits",
-                    CategoryNumber = 2
                 },
                 new PolicyCategory()
                 {
                     Category = "Code of Conduct",
-                    CategoryNumber = 3
                 },
                 new PolicyCategory()
                 {
                     Category = "Dress Code",
-                    CategoryNumber = 4
                 },
                 new PolicyCategory()
                 {
                     Category = "Time Off",
-                    CategoryNumber = 5
                 },
                 new PolicyCategory()
                 {
                     Category = "Training",
-                    CategoryNumber = 6
                 }
             };
-            return ListofPolicyCategories;
+
         }
 
-        public List<Policy> GetListOfPolicies()
+        //add a new policycateory (also one for deleting)
+
+        public void InitializeListOfPolicies()
         {
-            var listOfPolicies = new List<Policy>
+            ListOfPolicies = new List<Policy>
             {
                 new Policy()
                 {
                     Title = "Sexual Harrassment",
-                    Category = new PolicyCategory()
-                    {
-                        Category = "Code of Conduct"
-                    },
+                    Category = "Code of Conduct",
+                    ContentText = "Don't touch people inappropriately..."
+                },
+                new Policy()
+                {
+                    Title = "Casual Friday",
+                    Category = "Dress Code",
+                    ContentText = "On Fridays, you can where jeans as long as you donate $1."
+                },
+                new Policy()
+                {
+                    Title = "Time that you must arrive to work",
+                    Category = "Attendance",
+                    ContentText = "All employees must arrive at work by 8AM unless they have a valid reason."
+                },
+                new Policy()
+                {
+                    Title = "Health Care",
+                    Category = "Benefits",
+                    ContentText = "Every 6 months, employees may sign up for new HealthCare plans during the \"Open Season\"."
+                },
+                new Policy()
+                {
+                    Title = "Vacation Accruing",
+                    Category = "Time Off",
+                    ContentText = "Employees will accrue 2 weeks of vacation every 6 months of employeement."
+                },
+                new Policy()
+                {
+                    Title = "Safety Training",
+                    Category = "Training",
+                    ContentText = "All new employees must complete the initial safety training course within the first week of employment." +
+                                  " A refresher course must be taken for all employees every 12 months."
+                },
+                new Policy()
+                {
+                    Title = "401K",
+                    Category = "Benefits",
+                    ContentText = "All employees will automatically have 2.5% of their salary attributed to a 401k account."
+                },
+                new Policy()
+                {
+                    Title = "Normal Work Wear",
+                    Category = "Dress Code",
+                    ContentText = "All employees must dress in at least business casual clothing during normal business hours."
+                },
 
-                }
             };
-            return listOfPolicies;
+        }
+
+        public List<PolicyCategory> ReturnPolicyCategories()
+        {
+            return ListOfPolicyCategories;
+        }
+
+        //public void AddNewPolicyCategory(string policyCategory)
+        //{
+        //    ListOfPolicyCategories.Add(policyCategory);
+        //}
+
+        public List<Policy> ReturnPoliciesList()
+        {
+            return ListOfPolicies;
         } 
     }
 }
