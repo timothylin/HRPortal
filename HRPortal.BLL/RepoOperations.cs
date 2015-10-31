@@ -87,11 +87,12 @@ namespace HRPortal.BLL
         }
 
 
-        //Determine highest AppID number (problem with null if no applications in the list **MUST FIX)
+        //Determine highest AppID number (problem with null if no applications in the list **Added work around LINQ but long)
         public int HighestAppIDNum()
         {
             var allApps = _repo.GetAll();
-            var maxAppID = allApps.Max(a => a.AppId);
+            //var maxAppID = allApps.Max(a => a.AppId);
+            var maxAppID = allApps.OrderByDescending(a => a.AppId).Select(a => a.AppId).FirstOrDefault();
             return maxAppID;
         }
 
