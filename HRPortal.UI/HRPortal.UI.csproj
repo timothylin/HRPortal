@@ -142,11 +142,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Applicant\Index.cshtml" />
     <Content Include="Views\Applicant\CreateApp.cshtml" />
-    <Content Include="Views\Applicant\Confirmation2.cshtml" />
+    <Content Include="Views\Applicant\Confirmation.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\SecureApply\_LayoutSecureApply.cshtml" />
     <Content Include="Views\SecureApply\SecureApply.cshtml" />
-    <Content Include="Views\Applicant\Confirmation.cshtml" />
+    <Content Include="Views\Admin\ViewAllResumes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
