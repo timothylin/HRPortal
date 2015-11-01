@@ -8,11 +8,14 @@ namespace HRPortal.Models.Interfaces
 {
     public interface IRepository
     {
-        List<Resume> GetAll();
-        void Add(Resume newApp);
-        Resume GetById(int id);
+        List<Resume> GetAllResumes();
+        void AddResume(Resume newApp);
+        Resume GetResumeById(int id);
 
-        List<State> GetListOfStates();
-        List<Position> GetListOfPositions();
+        List<State> GetAllStates();
+        List<Position> GetAllPositions();
+
+        List<PolicyCategory> GetPolicyCategories();
+        List<Policy> GetPoliciesList();
     }
 }

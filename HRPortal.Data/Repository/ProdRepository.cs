@@ -14,27 +14,37 @@ namespace HRPortal.Data.Repository
         //var rootPath = Server.MapPath("~/");
 
         
-        public void Add(Resume newApp)
+        public void AddResume(Resume newApp)
         {
             throw new NotImplementedException();
         }
 
-        public List<Resume> GetAll()
+        public List<Resume> GetAllResumes()
         {
             throw new NotImplementedException();
         }
 
-        public Resume GetById(int id)
+        public Resume GetResumeById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Position> GetListOfPositions()
+        public List<Position> GetAllPositions()
         {
             throw new NotImplementedException();
         }
 
-        public List<State> GetListOfStates()
+        public List<State> GetAllStates()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<PolicyCategory> GetPolicyCategories()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Policy> GetPoliciesList()
         {
             throw new NotImplementedException();
         }

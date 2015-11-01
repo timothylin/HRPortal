@@ -24,7 +24,7 @@ namespace HRPortal.BLL
         //View All Apps
         public Response ViewAllApps()
         {
-            var appsList = _repo.GetAll();
+            var appsList = _repo.GetAllResumes();
 
             if (appsList.Count != 0)
             {
@@ -44,7 +44,7 @@ namespace HRPortal.BLL
         // View particular app
         public Response GetAppById(int id)
         {
-            var app = _repo.GetById(id);
+            var app = _repo.GetResumeById(id);
 
             if (app != null)
             {
@@ -65,9 +65,9 @@ namespace HRPortal.BLL
         //Add new application
         public Response AddAppToRepo(Resume newApp)
         {
-            _repo.Add(newApp);
+            _repo.AddResume(newApp);
 
-            var appInfo = _repo.GetById(newApp.AppId);
+            var appInfo = _repo.GetResumeById(newApp.AppId);
 
 
             if (appInfo != null)
@@ -90,7 +90,7 @@ namespace HRPortal.BLL
         //Determine highest AppID number (problem with null if no applications in the list **Added work around LINQ but long)
         public int HighestAppIDNum()
         {
-            var allApps = _repo.GetAll();
+            var allApps = _repo.GetAllResumes();
             //var maxAppID = allApps.Max(a => a.AppId);
             var maxAppID = allApps.OrderByDescending(a => a.AppId).Select(a => a.AppId).FirstOrDefault();
             return maxAppID;
@@ -100,13 +100,13 @@ namespace HRPortal.BLL
         //Find out list of States
         public List<State> ReturnListOfStates()
         {
-            return _repo.GetListOfStates();
+            return _repo.GetAllStates();
         } 
 
         //Find out List of Positions available
         public List<Position> ReturnListOfPositions()
         {
-            return _repo.GetListOfPositions();
+            return _repo.GetAllPositions();
         } 
 
     }

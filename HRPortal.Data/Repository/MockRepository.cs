@@ -23,22 +23,22 @@ namespace HRPortal.Data.Repository
             InitializeListOfPolicies();
         } 
 
-        public List<Resume> GetAll()
+        public List<Resume> GetAllResumes()
         {
             return AppsList;
         }
 
-        public Resume GetById(int id)
+        public Resume GetResumeById(int id)
         {
             return AppsList.FirstOrDefault(a => a.AppId == id);
         }
 
-        public void Add(Resume newApp)
+        public void AddResume(Resume newApp)
         {
             AppsList.Add(newApp);
         }
 
-        public List<State> GetListOfStates()
+        public List<State> GetAllStates()
         {
             var listOfStates = new List<State>
             {
@@ -176,7 +176,7 @@ namespace HRPortal.Data.Repository
 
         }
 
-        public List<Position> GetListOfPositions()
+        public List<Position> GetAllPositions()
         {
             var listOfPositions = new List<Position>
             {
@@ -308,7 +308,7 @@ namespace HRPortal.Data.Repository
             };
         }
 
-        public List<PolicyCategory> ReturnPolicyCategories()
+        public List<PolicyCategory> GetPolicyCategories()
         {
             return ListOfPolicyCategories;
         }
@@ -318,7 +318,7 @@ namespace HRPortal.Data.Repository
         //    ListOfPolicyCategories.Add(policyCategory);
         //}
 
-        public List<Policy> ReturnPoliciesList()
+        public List<Policy> GetPoliciesList()
         {
             return ListOfPolicies;
         } 
