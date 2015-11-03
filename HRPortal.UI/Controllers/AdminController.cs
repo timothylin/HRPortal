@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HRPortal.BLL;
+using HRPortal.Models;
 
 namespace HRPortal.UI.Controllers
 {
@@ -22,6 +23,13 @@ namespace HRPortal.UI.Controllers
             var AppsList = _rops.ViewAllApps().ApplicationsList;
 
             return View(AppsList);
+        }
+
+        public ActionResult Details(int appId)
+        {
+            var response = _rops.GetAppById(appId);
+            var resume = response.Application;
+            return View(resume);
         }
     }
 }

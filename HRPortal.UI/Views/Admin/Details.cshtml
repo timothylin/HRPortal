@@ -1,0 +1,100 @@
+﻿@model HRPortal.Models.Resume
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<table class="table-striped">
+    <thead>
+        <tr>
+            <td>Fields</td>
+            <td>Values</td>
+        </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var edu in Model.Education)
+    {
+        <tr>
+            <td>Degree</td>
+            <td>@Html.DisplayFor(m => edu.Degree.DegreeAbbr)</td>
+        </tr>
+        <tr>
+            <td>Institution</td>
+            <td>@Html.DisplayFor(m => edu.Institution)</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>@Html.DisplayFor(m => edu.Location.City)</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>@Html.DisplayFor(m => edu.Location.State)</td>
+        </tr>
+        <tr>
+            <td>Concentration</td>
+            <td>@Html.DisplayFor(m => edu.Concentration)</td>
+        </tr>
+        <tr>
+            <td>GPA</td>
+            <td>@Html.DisplayFor(m => edu.GPA)</td>
+        </tr>
+        <tr>
+            <td>Graduation Date</td>
+            <td>@Html.DisplayFor(m => edu.GraduationDate)</td>
+        </tr>
+        <tr>
+            <td>Enrollment Date</td>
+            <td>@Html.DisplayFor(m => edu.StartDate)</td>
+        </tr>
+    }
+        @foreach (var exp in Model.Experiences)
+        {
+            <tr>
+                <td>Title</td>
+                <td>@Html.DisplayFor(m => exp.Title)</td>
+            </tr>
+            <tr>
+                <td>Company</td>
+                <td>@Html.DisplayFor(m => exp.Company)</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>@Html.DisplayFor(m => exp.Location.City)</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>@Html.DisplayFor(m => exp.Location.State)</td>
+            </tr>
+            <tr>
+                <td>Start Date</td>
+                <td>@Html.DisplayFor(m => exp.StartDate)</td>
+            </tr>
+            <tr>
+                <td>End Date</td>
+                <td>@Html.DisplayFor(m => exp.EndDate)</td>
+            </tr>
+            <tr>
+                <td>Supervisor Name</td>
+                <td>@Html.DisplayFor(m => exp.SupervisorName)</td>
+            </tr>
+            <tr>
+                <td>Supervisor Email</td>
+                <td>@Html.DisplayFor(m => exp.SupervisorEmail)</td>
+            </tr>
+            <tr>
+                <td>Supervisor Phone Number</td>
+                <td>@Html.DisplayFor(m => exp.SupervisorPhone)</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>@Html.DisplayFor(m => exp.Description)</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

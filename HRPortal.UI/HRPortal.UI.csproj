@@ -147,6 +147,7 @@
     <Content Include="Views\SecureApply\_LayoutSecureApply.cshtml" />
     <Content Include="Views\SecureApply\SecureApply.cshtml" />
     <Content Include="Views\Admin\ViewAllResumes.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
