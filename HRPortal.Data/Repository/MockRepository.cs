@@ -11,13 +11,15 @@ namespace HRPortal.Data.Repository
 {
     public class MockRepository : IRepository
     {
-        public List<Resume> AppsList { get; set; }
-        public List<PolicyCategory> ListOfPolicyCategories { get; set; }
-        public List<Policy> ListOfPolicies { get; set; }
+        public static List<Resume> AppsList { get; set; }
+        public static List<PolicyCategory> ListOfPolicyCategories { get; set; }
+        public static List<Policy> ListOfPolicies { get; set; }
 
         public MockRepository()
         {
             AppsList = new List<Resume>();
+            ListOfPolicyCategories = new List<PolicyCategory>();
+            ListOfPolicies = new List<Policy>();
             InitializeMockResumeList();
             InitializePolicyCategories();
             InitializeListOfPolicies();

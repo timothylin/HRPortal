@@ -12,12 +12,12 @@ namespace HRPortal.BLL
 {
     public class RepoOperations
     {
-        private IRepository _repo;
+        private static IRepository _repo = Factory.CreateRepository();
         private Response _response;
 
         public RepoOperations()
         {
-            _repo = Factory.CreateRepository();
+            //_repo = Factory.CreateRepository();
             _response = new Response();
         }
 

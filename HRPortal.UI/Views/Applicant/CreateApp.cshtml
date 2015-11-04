@@ -59,7 +59,7 @@
            <p>Degree Type: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Degree.DegreeAbbr, Model.Degrees)</p>
            <p>Institution Name: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Institution)</p>
            <p>City: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Location.City)</p>
-           <p>c(m => m.ApplicationInfo.Education[i].Location.State, Model.States)</p>
+           <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Location.State, Model.States)</p>
            <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].StartDate)</p>
            <p>Graduation Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GraduationDate)</p>
            <p>GPA: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GPA)</p>
