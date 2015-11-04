@@ -107,7 +107,18 @@ namespace HRPortal.BLL
         public List<Position> ReturnListOfPositions()
         {
             return _repo.GetAllPositions();
-        } 
+        }
 
+        //Find out list of current Policy categories
+        public List<PolicyCategory> ReturnListOfPolicyCategories()
+        {
+            return _repo.GetPolicyCategories();
+        }
+
+        //List of Policies in a certain Policy category
+        public List<Policy> ReturnListOfPoliciesInCategory(PolicyCategory category)
+        {
+            return;
+        } 
     }
 }

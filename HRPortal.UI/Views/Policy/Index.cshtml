@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Policy Management Home";
+}
+
+<h2>Policy Management Home</h2>
+
+<div>
+    @Html.ActionLink("View Policies", "ViewAllPolicies", "Policy", null, new { @class = "btn btn-primary" })
+</div>
+<br />
+<div>
+    @Html.ActionLink("Manage Policies", "ManagePolicies", "Policy", null, new {@class = "btn btn-primary"})
+</div>
+<br />
+<div>
+    @Html.ActionLink("Manage Categories", "ManageCategories", "Policy", null, new { @class = "btn btn-primary" })
+</div>
+

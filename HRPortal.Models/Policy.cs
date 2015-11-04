@@ -12,9 +12,9 @@ namespace HRPortal.Models
         public string Category { get; set; }
         public string ContentText { get; set; }
 
-        //public Policy()
-        //{
-        //    Category = new PolicyCategory();
-        //}   
+        public Policy()
+        {
+            Category = new PolicyCategory();
+        }
     }
 }

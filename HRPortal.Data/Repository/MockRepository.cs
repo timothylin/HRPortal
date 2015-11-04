@@ -318,9 +318,9 @@ namespace HRPortal.Data.Repository
         //    ListOfPolicyCategories.Add(policyCategory);
         //}
 
-        public List<Policy> GetPoliciesList()
+        public List<Policy> GetPoliciesListInCategory(PolicyCategory category)
         {
-            return ListOfPolicies;
-        } 
+            return ListOfPolicies.Select(p => p).Where(p => p.Category == category.Category).ToList();
+        }
     }
 }
