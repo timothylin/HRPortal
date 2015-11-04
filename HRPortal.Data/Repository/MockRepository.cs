@@ -320,6 +320,8 @@ namespace HRPortal.Data.Repository
         //    ListOfPolicyCategories.Add(policyCategory);
         //}
 
+        
+
         public List<Policy> GetPoliciesListInCategory(PolicyCategory category)
         {
             return ListOfPolicies.Select(p => p).Where(p => p.Category == category.Category).ToList();

@@ -9,10 +9,6 @@ namespace HRPortal.UI.Controllers
 {
     public class HomeController : Controller
     {
-        
-        public RepoOperations rops = new RepoOperations();
-        Session["RepoOps"] = rops
-
         // GET: Home
         public ActionResult Index()
         {
