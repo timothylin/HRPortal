@@ -10,7 +10,7 @@
 {
     <p>Select a Category to View: @Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
 
-    <button class="btn btn-primary">Continue...</button>
+    <button class="btn btn-success">Submit</button>
 }
-
-@Html.ActionLink("Return to Policies Index", "Index", "Policy", null, new { @class = "btn btn-primary"})
+<br />
+@Html.ActionLink("Return to Policies Index", "Index", "Policy", null, new { @class = "btn btn-danger"})
