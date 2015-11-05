@@ -16,7 +16,7 @@ namespace HRPortal.UI.Controllers
         // GET: SecureApply
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("SecureApply");
         }
 
         // GET: Direct Application
