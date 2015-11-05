@@ -1,0 +1,8 @@
+Team,
+
+As requested here is the first of the HR Portal requirements:
+
+Provide a way for users to submit resumes\applications for different positions. Resume should include: Name, Contact Information, Position, Background, Education, Desired Salary, Date of application
+Provide an administrative page where someone can see all the resumes that have been submitted. 
+
+No authentication is required at this time. 
