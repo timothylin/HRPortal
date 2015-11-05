@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HRPortal.BLL;
+using HRPortal.UI.Models;
 
 namespace HRPortal.UI.Controllers
 {
@@ -19,7 +20,11 @@ namespace HRPortal.UI.Controllers
 
         public ActionResult ViewAllPolicies()
         {
-            return View();
+            var policies = new ViewPoliciesVM();
+
+            policies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+
+            return View(policies);
         }
 
         public ActionResult ManagePolicies()
