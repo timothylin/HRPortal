@@ -45,6 +45,8 @@ namespace HRPortal.UI.Controllers
 
             if (ModelState.IsValid)
             {
+                _rops.AddAppToRepo(newAppInfo.ApplicationInfo);
+
                 return View("Confirmation", newAppInfo.ApplicationInfo);
             }
 

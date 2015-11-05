@@ -12,7 +12,7 @@
     @Html.ValidationSummary(true)
 
     /*Contact Info*/
-    <p>Prefix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Prefix)</p>
+    <p>Prefix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Prefix, new { htmlAttributes = new { placeholder = "Prefix" } })</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
     <p>First Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName)</p>
@@ -42,8 +42,8 @@
     <p>
         @for (var i = 0; i < 1; i++)
         {
-            <p>Company: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Company)</p>
-            <p>Title: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Title)</p>
+        <p>Company: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Company)</p>
+        <p>Title: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Title)</p>
             <p>City: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Location.City)</p>
             <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Experiences[i].Location.State, Model.States)</p>
             <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].StartDate)</p>
@@ -53,26 +53,27 @@
             <p>Supervisor Email: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorEmail)</p>
         }</p>
 
-    <p>@Html.LabelFor(m => m.ApplicationInfo.Education)</p>
-    <p>@for (var i = 0; i < 1; i++)
-       {
-           <p>Degree Type: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Degree.DegreeAbbr, Model.Degrees)</p>
-           <p>Institution Name: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Institution)</p>
-           <p>City: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Location.City)</p>
-           <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Location.State, Model.States)</p>
-           <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].StartDate)</p>
-           <p>Graduation Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GraduationDate)</p>
-           <p>GPA: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GPA)</p>
-           <p>Concentration: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Concentration)</p>
-       }
-    </p>
+        <p>@Html.LabelFor(m => m.ApplicationInfo.Education)</p>
+        <p>
+            @for (var i = 0; i < 1; i++)
+            {
+            <p>Degree Type: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Degree.DegreeAbbr, Model.Degrees)</p>
+            <p>Institution Name: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Institution)</p>
+            <p>City: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Location.City)</p>
+            <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Location.State, Model.States)</p>
+            <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].StartDate)</p>
+            <p>Graduation Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GraduationDate)</p>
+            <p>GPA: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GPA)</p>
+            <p>Concentration: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Concentration)</p>
+            }
+            </p>
 
-    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>
-    <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
+            <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>
+            <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
 
-    <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="reset" class="btn btn-primary">Reset</button>
+            <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
 
 }
 

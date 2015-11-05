@@ -1,7 +1,8 @@
 ﻿@model HRPortal.Models.Resume
 
 @{
-    ViewBag.Title = "Confirmation of Your New Application";
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/SecureApply/_LayoutSecureApply.cshtml";
 }
 
 <h2>Confirmation Page</h2>
@@ -24,38 +25,38 @@
             <td>Suffix</td>
             <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Suffix)</td>
         </tr>
-    <tr>
-        <td>Email</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Email)</td>
-    </tr>
-    <tr>
-        <td>Phone Number</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.PhoneNumber)</td>
-    </tr>
-    <tr>
-        <td>Address Line 1</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.AddressLine1)</td>
-    </tr>
-    <tr>
-        <td>Address Line 2</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.AddressLine2)</td>
-    </tr>
-    <tr>
-        <td>City</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.City)</td>
-    </tr>
-    <tr>
-        <td>State</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.State)</td>
-    </tr>
-    <tr>
-        <td>Zip Code</td>
-        <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.Zipcode)</td>
-    </tr>
-    <tr>
-        <td>Desired Position</td>
-        <td>@Html.DisplayFor(m => m.Position.PositionName)</td>
-    </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Email)</td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <td>Address Line 1</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.AddressLine1)</td>
+        </tr>
+        <tr>
+            <td>Address Line 2</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.AddressLine2)</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.City)</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.State)</td>
+        </tr>
+        <tr>
+            <td>Zip Code</td>
+            <td>@Html.DisplayFor(m => m.ApplicantContactInfo.Address.Zipcode)</td>
+        </tr>
+        <tr>
+            <td>Desired Position</td>
+            <td>@Html.DisplayFor(m => m.Position.PositionName)</td>
+        </tr>
         <tr>
             <td>Desired Salary</td>
             <td>@Html.DisplayFor(m => m.DesiredSalary)</td>
@@ -162,5 +163,5 @@
 
     </tbody>
 </table>
-<br/>
-@Html.ActionLink("Return to Applicant Page", "Index", "Applicant", null, new { @class = "btn btn-primary" })
+<br />
+@Html.ActionLink("Return to Secure Apply Page", "Index", "SecureApply", null, new { @class = "btn btn-danger" })
