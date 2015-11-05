@@ -20,11 +20,27 @@ namespace HRPortal.UI.Controllers
 
         public ActionResult ViewAllPolicies()
         {
-            var policies = new ViewPoliciesVM();
+            var viewPolicies = new ViewPoliciesVM();
 
-            policies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+            viewPolicies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
 
-            return View(policies);
+            return View("ViewCategories", viewPolicies);
+        }
+
+        [HttpPost]
+        public ActionResult ViewAllPolicies(ViewPoliciesVM viewPolicies)
+        {
+            //viewPolicies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+            viewPolicies.Policies = _rops.ReturnListOfPoliciesInCategory(viewPolicies.PolicyCategory);
+
+            return View("ViewAllPolicies", viewPolicies);
+        }
+
+        public ActionResult ViewPolicyDetails(int policyId)
+        {
+            var policy = _rops.ReturnPolicyById(policyId);
+
+            return View(policy);
         }
 
         public ActionResult ManagePolicies()

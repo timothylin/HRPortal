@@ -120,5 +120,19 @@ namespace HRPortal.BLL
         {
             return _repo.GetPoliciesListInCategory(category);
         }
+
+        //Return a Policy by Id
+        public Policy ReturnPolicyById(int id)
+        {
+            return _repo.GetPolicyById(id);
+        }
+
+        //Determine highest PolicyId number
+        public int HighestPolicyIdNum()
+        {
+            var allPolicies = _repo.GetAllPolicies();
+            var maxPolicyId = allPolicies.OrderByDescending(p => p.PolicyId).Select(p => p.PolicyId).FirstOrDefault();
+            return maxPolicyId;
+        }
     }
 }

@@ -259,36 +259,42 @@ namespace HRPortal.Data.Repository
             {
                 new Policy()
                 {
+                    PolicyId = 1,
                     Title = "Sexual Harrassment",
                     Category = "Code of Conduct",
                     ContentText = "Don't touch people inappropriately..."
                 },
                 new Policy()
                 {
+                    PolicyId = 2,
                     Title = "Casual Friday",
                     Category = "Dress Code",
                     ContentText = "On Fridays, you can where jeans as long as you donate $1."
                 },
                 new Policy()
                 {
+                    PolicyId = 3,
                     Title = "Time that you must arrive to work",
                     Category = "Attendance",
                     ContentText = "All employees must arrive at work by 8AM unless they have a valid reason."
                 },
                 new Policy()
                 {
+                    PolicyId = 4,
                     Title = "Health Care",
                     Category = "Benefits",
                     ContentText = "Every 6 months, employees may sign up for new HealthCare plans during the \"Open Season\"."
                 },
                 new Policy()
                 {
+                    PolicyId = 5,
                     Title = "Vacation Accruing",
                     Category = "Time Off",
                     ContentText = "Employees will accrue 2 weeks of vacation every 6 months of employeement."
                 },
                 new Policy()
                 {
+                    PolicyId = 6,
                     Title = "Safety Training",
                     Category = "Training",
                     ContentText = "All new employees must complete the initial safety training course within the first week of employment." +
@@ -296,12 +302,14 @@ namespace HRPortal.Data.Repository
                 },
                 new Policy()
                 {
+                    PolicyId = 7,
                     Title = "401K",
                     Category = "Benefits",
                     ContentText = "All employees will automatically have 2.5% of their salary attributed to a 401k account."
                 },
                 new Policy()
                 {
+                    PolicyId = 8,
                     Title = "Normal Work Wear",
                     Category = "Dress Code",
                     ContentText = "All employees must dress in at least business casual clothing during normal business hours."
@@ -309,6 +317,11 @@ namespace HRPortal.Data.Repository
 
             };
         }
+
+        public List<Policy> GetAllPolicies()
+        {
+            return ListOfPolicies;
+        } 
 
         public List<PolicyCategory> GetPolicyCategories()
         {
@@ -320,11 +333,14 @@ namespace HRPortal.Data.Repository
         //    ListOfPolicyCategories.Add(policyCategory);
         //}
 
-        
-
         public List<Policy> GetPoliciesListInCategory(PolicyCategory category)
         {
             return ListOfPolicies.Select(p => p).Where(p => p.Category == category.Category).ToList();
+        }
+
+        public Policy GetPolicyById(int id)
+        {
+            return ListOfPolicies.Select(p => p).Where(p => p.PolicyId == id).FirstOrDefault();
         }
     }
 }

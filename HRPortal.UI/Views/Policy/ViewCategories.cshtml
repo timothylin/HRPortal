@@ -1,0 +1,16 @@
+﻿@model HRPortal.UI.Models.ViewPoliciesVM
+
+@{
+    ViewBag.Title = "View Categories";
+}
+
+<h2>View Categories</h2>
+
+@using (Html.BeginForm("ViewAllPolicies", "Policy", FormMethod.Post))
+{
+    <p>Select a Category to View: @Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
+
+    <button class="btn btn-primary">Continue...</button>
+}
+
+@Html.ActionLink("Return to Policies Index", "Index", "Policy", null, new { @class = "btn btn-primary"})

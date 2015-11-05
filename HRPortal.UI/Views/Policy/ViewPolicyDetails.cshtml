@@ -1,0 +1,15 @@
+﻿@model HRPortal.Models.Policy
+
+@{
+    ViewBag.Title = "View Policy Details";
+}
+
+<h2>View Policy Details</h2>
+
+<p>Policy ID: @Html.DisplayFor(m => m.PolicyId)</p>
+<p>Title: @Html.DisplayFor(m => m.Title)</p>
+<p>Category: @Html.DisplayFor(m => m.Category)</p>
+<p>Content: @Html.DisplayFor(m => m.ContentText)</p>
+
+@Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-primary" })
+

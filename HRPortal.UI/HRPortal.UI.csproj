@@ -151,6 +151,9 @@
     <Content Include="Views\Admin\ViewAllResumes.cshtml" />
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Policy\Index.cshtml" />
+    <Content Include="Views\Policy\ViewAllPolicies.cshtml" />
+    <Content Include="Views\Policy\ViewCategories.cshtml" />
+    <Content Include="Views\Policy\ViewPolicyDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

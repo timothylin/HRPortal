@@ -44,7 +44,17 @@ namespace HRPortal.Data.Repository
             throw new NotImplementedException();
         }
 
+        public List<Policy> GetAllPolicies()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Policy> GetPoliciesListInCategory(PolicyCategory category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Policy GetPolicyById(int id)
         {
             throw new NotImplementedException();
         }
