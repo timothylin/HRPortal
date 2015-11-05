@@ -118,7 +118,7 @@ namespace HRPortal.BLL
         //List of Policies in a certain Policy category
         public List<Policy> ReturnListOfPoliciesInCategory(PolicyCategory category)
         {
-            return;
-        } 
+            return _repo.GetPoliciesListInCategory(category);
+        }
     }
 }
