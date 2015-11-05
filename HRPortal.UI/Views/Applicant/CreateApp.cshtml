@@ -12,28 +12,28 @@
     @Html.ValidationSummary(true)
 
     /*Contact Info*/
-    <p>Prefix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Prefix)</p>
+    <p>Prefix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Prefix, new { htmlAttributes = new { placeholder = "Prefix" } })</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
-    <p>First Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName)</p>
+    <p>First Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.FirstName, new { htmlAttributes = new { placeholder = "First Name" } })</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName)</p>
-    <p>Last Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName)</p>
-    <p>Suffix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Suffix)</p>
+    <p>Last Name*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.LastName, new { htmlAttributes = new { placeholder = "Last Name" } })</p>
+    <p>Suffix: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Suffix, new { htmlAttributes = new { placeholder = "Suffix" } })</p>
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Email)</p>
-    <p>Email*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Email)</p>
+    <p>Email*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Email, new { htmlAttributes = new { placeholder = "Email" } })</p>
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.PhoneNumber)</p>
-    <p>Phone Number*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.PhoneNumber)</p>
+    <p>Phone Number*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.PhoneNumber, new { htmlAttributes = new { placeholder = "Phone Number" } })</p>
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
-    <p>Address Line 1*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1)</p>
-    <p>Address Line 2: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine2)</p>
+    <p>Address Line 1*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine1, new { htmlAttributes = new { placeholder = "Address Line 1" } })</p>
+    <p>Address Line 2: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.AddressLine2, new { htmlAttributes = new { placeholder = "Address Line 2" } })</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City)</p>
-    <p>City*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City)</p>
+    <p>City*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.City, new { htmlAttributes = new { placeholder = "City" } })</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State)</p>
-    <p>State*: @Html.DropDownListFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State, Model.States)</p>
+    <p>State*: @Html.DropDownListFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.State, Model.States, new { htmlAttributes = new { placeholder = "State" } })</p>
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
-    <p>Zipcode*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode)</p>
+    <p>Zipcode*: @Html.EditorFor(m => m.ApplicationInfo.ApplicantContactInfo.Address.Zipcode, new { htmlAttributes = new { placeholder = "Zip Code" } })</p>
 
     <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.Position.PositionName)</p>
     <p>Desired Position*: @Html.DropDownListFor(m => m.ApplicationInfo.Position.PositionName, Model.Positions)</p>
@@ -42,37 +42,39 @@
     <p>
         @for (var i = 0; i < 1; i++)
         {
-            <p>Company: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Company)</p>
-            <p>Title: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Title)</p>
-            <p>City: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Location.City)</p>
-            <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Experiences[i].Location.State, Model.States)</p>
+        <p>Company: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Company, new { htmlAttributes = new { placeholder = "Company Name" } })</p>
+        <p>Title: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Title, new { htmlAttributes = new { placeholder = "Title" } })</p>
+        <p>City: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].Location.City, new { htmlAttributes = new { placeholder = "City" } })</p>
+            <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Experiences[i].Location.State, Model.States, new { htmlAttributes = new { placeholder = "State" } })</p>
             <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].StartDate)</p>
             <p>End Date: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].EndDate)</p>
-            <p>Supervisor Name: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorName)</p>
-            <p>Supervisor Phone Number: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorPhone)</p>
-            <p>Supervisor Email: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorEmail)</p>
+            <p>Supervisor Name: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorName, new { htmlAttributes = new { placeholder = "Supervisor's Name" } })</p>
+            <p>Supervisor Phone Number: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorPhone, new { htmlAttributes = new { placeholder = "Supervisor's Phone Number" } })</p>
+            <p>Supervisor Email: @Html.EditorFor(m => m.ApplicationInfo.Experiences[i].SupervisorEmail, new { htmlAttributes = new { placeholder = "Supervisor's Email" } })</p>
         }</p>
 
-    <p>@Html.LabelFor(m => m.ApplicationInfo.Education)</p>
-    <p>@for (var i = 0; i < 1; i++)
-       {
-           <p>Degree Type: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Degree.DegreeAbbr, Model.Degrees)</p>
-           <p>Institution Name: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Institution)</p>
-           <p>City: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Location.City)</p>
-           <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Location.State, Model.States)</p>
-           <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].StartDate)</p>
-           <p>Graduation Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GraduationDate)</p>
-           <p>GPA: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GPA)</p>
-           <p>Concentration: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Concentration)</p>
-       }
-    </p>
+        <p>@Html.LabelFor(m => m.ApplicationInfo.Education)</p>
+        <p>
+            @for (var i = 0; i < 1; i++)
+            {
+            <p>Degree Type: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Degree.DegreeAbbr, Model.Degrees)</p>
+            <p>Institution Name: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Institution, new { htmlAttributes = new { placeholder = "Institution Name" } })</p>
+            <p>City: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Location.City, new { htmlAttributes = new { placeholder = "City" } })</p>
+            <p>State: @Html.DropDownListFor(m => m.ApplicationInfo.Education[i].Location.State, Model.States, new { htmlAttributes = new { placeholder = "State" } })</p>
+            <p>Start Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].StartDate)</p>
+            <p>Graduation Date: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GraduationDate)</p>
+            <p>GPA: @Html.EditorFor(m => m.ApplicationInfo.Education[i].GPA, new { htmlAttributes = new { placeholder = "GPA" } })</p>
+            <p>Concentration: @Html.EditorFor(m => m.ApplicationInfo.Education[i].Concentration, new { htmlAttributes = new { placeholder = "Concentration" } })</p>
+            }
+            </p>
 
-    <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>
-    <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
+            <p>@Html.ValidationMessageFor(m => m.ApplicationInfo.DesiredSalary)</p>
+            <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary, new { htmlAttributes = new { placeholder = "Desired Salary" } })</p>
 
-    <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="reset" class="btn btn-primary">Reset</button>
+            <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
+            <br />
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
 
 }
 
