@@ -47,10 +47,10 @@
                 <td>@Html.DisplayFor(m => r.Education[0].Degree.DegreeAbbr)</td>
                 <td>@Html.DisplayFor(m => r.DesiredSalary)</td>
                 <td>@Html.DisplayFor(m => r.AppDate)</td>
-                <td>@Html.ActionLink("Details", "Details", "Admin", new {@r.AppId}, new {@class = "btn btn-primary"})</td>
+                <td>@Html.ActionLink("Details", "Details", "Admin", new {@r.AppId}, new {@class = "btn btn-info"})</td>
             </tr>
         }
     </tbody>
 </table>
 
-@Html.ActionLink("Return to Admin Page", "Index", "Admin", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Return to Admin Page", "Index", "Admin", null, new { @class = "btn btn-danger" })
