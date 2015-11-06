@@ -93,7 +93,11 @@ namespace HRPortal.UI.Controllers
         //Methods for Manage Categories tab
         public ActionResult ManageCategories()
         {
-            return View();
+            var viewPolicies = new ViewPoliciesVM();
+            viewPolicies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+
+            return View(viewPolicies);
         }
+        
     }
 }

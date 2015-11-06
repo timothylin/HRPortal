@@ -159,6 +159,7 @@
     <Content Include="Views\Policy\ManagePolicies.cshtml" />
     <Content Include="Views\Policy\ManagePoliciesInCategory.cshtml" />
     <Content Include="Views\Policy\ViewPolicyDetailsFromMP.cshtml" />
+    <Content Include="Views\Policy\ManageCategories.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,14 @@
+﻿@model HRPortal.UI.Models.ViewPoliciesVM
+
+@{
+    ViewBag.Title = "Manage Categories";
+}
+
+<h2>Manage Categories</h2>
+
+@using (@Html.BeginForm("ManagePoliciesInCategory", "Policy", FormMethod.Post))
+{
+            <p>Edit Policies in the Following Categories:</p>
+            <p>@Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
+            <button class="btn btn-primary">Manage the Policies in the Above Category</button>
+}
