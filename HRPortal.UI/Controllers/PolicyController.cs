@@ -18,6 +18,8 @@ namespace HRPortal.UI.Controllers
             return View();
         }
 
+        
+        //Methods for View Policies tab
         public ActionResult ViewAllPolicies()
         {
             var viewPolicies = new ViewPoliciesVM();
@@ -30,7 +32,6 @@ namespace HRPortal.UI.Controllers
         [HttpPost]
         public ActionResult ViewAllPolicies(ViewPoliciesVM viewPolicies)
         {
-            //viewPolicies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
             viewPolicies.Policies = _rops.ReturnListOfPoliciesInCategory(viewPolicies.PolicyCategory);
 
             return View("ViewAllPolicies", viewPolicies);
@@ -43,11 +44,53 @@ namespace HRPortal.UI.Controllers
             return View(policy);
         }
 
+
+
+        //Methods for Manage Policies tab
         public ActionResult ManagePolicies()
         {
-            return View();
+            var viewPolicies = new ViewPoliciesVM();
+            viewPolicies.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+
+            return View(viewPolicies);
         }
 
+        [HttpPost]
+        public ActionResult ManagePoliciesInCategory(ViewPoliciesVM viewPolicies)
+        {
+            viewPolicies.Policies = _rops.ReturnListOfPoliciesInCategory(viewPolicies.PolicyCategory);
+
+            return View(viewPolicies);
+        }
+
+        public ActionResult ViewPolicyDetailsFromMP(int policyId)
+        {
+            var policy = _rops.ReturnPolicyById(policyId);
+
+            return View(policy);
+        }
+
+        public ActionResult DeletePolicy(int policyId, string category)
+        {
+            _rops.RemovePolicyByIdOp(policyId);
+            var viewPolicies = new ViewPoliciesVM();
+            viewPolicies.PolicyCategory.Category = category;
+            viewPolicies.Policies = _rops.ReturnListOfPoliciesInCategory(viewPolicies.PolicyCategory);
+
+            if (viewPolicies.Policies.Count() != 0)
+            {
+                return View("ManagePoliciesInCategory", viewPolicies);
+            }
+            else
+            {
+                return View("Index");
+            }
+            
+        }
+
+
+
+        //Methods for Manage Categories tab
         public ActionResult ManageCategories()
         {
             return View();

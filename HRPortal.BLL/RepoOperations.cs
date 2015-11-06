@@ -134,5 +134,11 @@ namespace HRPortal.BLL
             var maxPolicyId = allPolicies.OrderByDescending(p => p.PolicyId).Select(p => p.PolicyId).FirstOrDefault();
             return maxPolicyId;
         }
+
+        //Remove a policy by Id
+        public void RemovePolicyByIdOp(int id)
+        {
+            _repo.RemovePolicyById(id);
+        }
     }
 }

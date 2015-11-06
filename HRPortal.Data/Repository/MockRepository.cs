@@ -342,5 +342,22 @@ namespace HRPortal.Data.Repository
         {
             return ListOfPolicies.Select(p => p).Where(p => p.PolicyId == id).FirstOrDefault();
         }
+
+        public void RemovePolicyById(int id)
+        {
+            var appToRemove = ListOfPolicies.Select(p => p).Where(p => p.PolicyId == id).FirstOrDefault();
+            string catToCheck = appToRemove.Category;
+
+            if (appToRemove != null)
+            {
+                ListOfPolicies.Remove(appToRemove);
+                
+                if (ListOfPolicies.Where(p => p.Category == catToCheck).Count() == 0)
+                {
+                    var newPolicyCategoriesList = ListOfPolicyCategories.Select(c => c).Where(c => c.Category != catToCheck).ToList();
+                    ListOfPolicyCategories = newPolicyCategoriesList;
+                }
+            }
+        }
     }
 }

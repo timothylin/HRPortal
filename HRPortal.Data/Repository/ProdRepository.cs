@@ -58,5 +58,10 @@ namespace HRPortal.Data.Repository
         {
             throw new NotImplementedException();
         }
+
+        public void RemovePolicyById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -21,5 +21,7 @@ namespace HRPortal.Models.Interfaces
 
         List<Policy> GetPoliciesListInCategory(PolicyCategory category);
         Policy GetPolicyById(int id);
+
+        void RemovePolicyById(int id);
     }
 }

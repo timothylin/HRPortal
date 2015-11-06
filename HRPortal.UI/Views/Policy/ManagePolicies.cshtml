@@ -1,0 +1,17 @@
+﻿@model HRPortal.UI.Models.ViewPoliciesVM
+
+@{
+    ViewBag.Title = "Manage Policies Index";
+}
+
+<h2>Manage Policies Index</h2>
+
+@Html.ActionLink("Add a New Policy", "AddNewPolicy", "Policy", null, new { @class = "btn btn-primary"})
+<br/>
+@using (@Html.BeginForm("ManagePoliciesInCategory", "Policy", FormMethod.Post))
+{
+    <p> </p>  //Must insert Line break
+    <p>Edit Policies in the Following Categories:</p>
+    <p>@Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
+    <button class="btn btn-primary">Manage the Policies in the Above Category</button>
+}
