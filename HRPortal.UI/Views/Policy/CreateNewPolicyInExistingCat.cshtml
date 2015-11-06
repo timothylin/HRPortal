@@ -1,0 +1,23 @@
+﻿@model HRPortal.UI.Models.CreatePolicyVM
+
+@{
+    ViewBag.Title = "Create New Policy In an Existing Category";
+}
+
+<h2>Create New Policy in @Model.Policy.Category</h2>
+<div>
+@using (Html.BeginForm("CreateNewPolicyInExistingCat", "Policy", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Policy.Category)
+    @Html.HiddenFor(m => m.Policy.PolicyId)
+    @Html.ValidationSummary(true)
+
+    @Html.ValidationMessageFor(m => m.Policy.Title)
+    <p>Policy Title*: @Html.EditorFor(m => m.Policy.Title)</p>
+    @Html.ValidationMessageFor(m => m.Policy.ContentText)
+    <p>Content Text*: @Html.EditorFor(m => m.Policy.ContentText)</p>
+
+    <button type="reset" class="btn btn-warning">RESET</button>
+    <button type="Submit" class="btn btn-success">Submit</button>
+}
+</div>

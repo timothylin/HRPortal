@@ -160,6 +160,10 @@
     <Content Include="Views\Policy\ManagePoliciesInCategory.cshtml" />
     <Content Include="Views\Policy\ViewPolicyDetailsFromMP.cshtml" />
     <Content Include="Views\Policy\ManageCategories.cshtml" />
+    <Content Include="Views\Policy\AddNewPolicy.cshtml" />
+    <Content Include="Views\Policy\CreateNewPolicyInExistingCat.cshtml" />
+    <Content Include="Views\Policy\Confirmation.cshtml" />
+    <Content Include="Views\Policy\AddNewCategoryAndPolicy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

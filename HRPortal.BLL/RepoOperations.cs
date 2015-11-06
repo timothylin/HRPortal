@@ -140,5 +140,17 @@ namespace HRPortal.BLL
         {
             _repo.RemovePolicyById(id);
         }
+
+        //Add a new policy into an existing category
+        public void AddNewPolicyInExistingCat(Policy newPolicy)
+        {
+            _repo.AddNewPolicyInExistingCategory(newPolicy);
+        }
+
+        //Add a new policy into a new category
+        public void AddNewPolicyInNewCat(Policy newPolicy)
+        {
+            _repo.AddNewPolicyInNewCategory(newPolicy);
+        }
     }
 }

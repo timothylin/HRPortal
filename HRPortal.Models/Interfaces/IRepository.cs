@@ -23,5 +23,8 @@ namespace HRPortal.Models.Interfaces
         Policy GetPolicyById(int id);
 
         void RemovePolicyById(int id);
+
+        void AddNewPolicyInExistingCategory(Policy newPolicy);
+        void AddNewPolicyInNewCategory(Policy newPolicy);
     }
 }

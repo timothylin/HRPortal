@@ -85,10 +85,58 @@ namespace HRPortal.UI.Controllers
             {
                 return View("Index");
             }
-            
         }
 
 
+        //Methods For Add New Policy in Manage Policies tab
+        public ActionResult AddNewPolicy()
+        {
+            var newPolicy = new CreatePolicyVM();
+            newPolicy.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+            newPolicy.Policy.PolicyId = _rops.HighestPolicyIdNum() + 1;
+            return View(newPolicy);
+        }
+
+        [HttpPost]
+        public ActionResult AddNewPolicy(CreatePolicyVM newPolicy)
+        {
+            return View("CreateNewPolicyInExistingCat", newPolicy);
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateNewPolicyInExistingCat(CreatePolicyVM newPolicy)
+        {
+            if (ModelState.IsValid)
+            {
+                _rops.AddNewPolicyInExistingCat(newPolicy.Policy);
+
+                return View("Confirmation", newPolicy.Policy);
+            }
+
+            return View(newPolicy);
+        }
+
+        public ActionResult AddNewCategoryAndPolicy()
+        {
+            var newPolicy = new CreatePolicyVM();
+            newPolicy.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
+            newPolicy.Policy.PolicyId = _rops.HighestPolicyIdNum() + 1;
+
+            return View(newPolicy);
+        }
+
+        [HttpPost]
+        public ActionResult AddNewCategoryAndPolicy(CreatePolicyVM newPolicy)
+        {
+            if (ModelState.IsValid)
+            {
+                _rops.AddNewPolicyInNewCat(newPolicy.Policy);
+
+                return View("Confirmation", newPolicy.Policy);
+            }
+            return View(newPolicy);
+        }
 
         //Methods for Manage Categories tab
         public ActionResult ManageCategories()

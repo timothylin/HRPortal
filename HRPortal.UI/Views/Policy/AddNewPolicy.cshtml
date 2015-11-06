@@ -1,0 +1,21 @@
+﻿@model HRPortal.UI.Models.CreatePolicyVM
+
+@{
+    ViewBag.Title = "Add a New Policy";
+}
+
+<h2>Add a New Policy</h2>
+
+<div>
+    @using (@Html.BeginForm("CreateNewPolicyInExistingCat", "Policy", FormMethod.Post))
+{
+        @Html.HiddenFor(m => m.Policy.PolicyId)    
+        <p>Add a Policy to one of the Following Existing Categories:</p>
+        <p>@Html.DropDownListFor(m => m.Policy.Category, Model.PolicyCategoriesList)</p>
+        <button class="btn btn-primary">Add a Policy in the Above Category</button>
+}
+</div>
+<br/>
+<div>
+    @Html.ActionLink("Or Add a Policy in a New Category", "AddNewCategoryAndPolicy", "Policy", null, new { @class = "btn btn-primary" })
+    </div>

@@ -328,11 +328,6 @@ namespace HRPortal.Data.Repository
             return ListOfPolicyCategories;
         }
 
-        //public void AddNewPolicyCategory(string policyCategory)
-        //{
-        //    ListOfPolicyCategories.Add(policyCategory);
-        //}
-
         public List<Policy> GetPoliciesListInCategory(PolicyCategory category)
         {
             return ListOfPolicies.Select(p => p).Where(p => p.Category == category.Category).ToList();
@@ -358,6 +353,21 @@ namespace HRPortal.Data.Repository
                     ListOfPolicyCategories = newPolicyCategoriesList;
                 }
             }
+        }
+
+        public void AddNewPolicyInExistingCategory(Policy newPolicy)
+        {
+            ListOfPolicies.Add(newPolicy);
+        }
+
+        public void AddNewPolicyInNewCategory(Policy newPolicy)
+        {
+            ListOfPolicies.Add(newPolicy);
+            PolicyCategory newCategory = new PolicyCategory()
+            {
+                Category = newPolicy.Category
+            };
+            ListOfPolicyCategories.Add(newCategory);
         }
     }
 }

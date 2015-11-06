@@ -63,5 +63,15 @@ namespace HRPortal.Data.Repository
         {
             throw new NotImplementedException();
         }
+
+        public void AddNewPolicyInExistingCategory(Policy newPolicy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddNewPolicyInNewCategory(Policy newPolicy)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

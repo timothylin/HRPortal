@@ -38,6 +38,21 @@ namespace HRPortal.UI.Models
         {
             List<ValidationResult> errors = new List<ValidationResult>();
 
+            if (string.IsNullOrEmpty(Policy.Title))
+            {
+                errors.Add(new ValidationResult("Please enter a title...", new[] { "Policy.Title" }));
+            }
+
+            if (string.IsNullOrEmpty(Policy.ContentText))
+            {
+                errors.Add(new ValidationResult("Please enter some context text...", new[] { "Policy.ContextText" }));
+            }
+
+            if (string.IsNullOrEmpty(Policy.Category))
+            {
+                errors.Add(new ValidationResult("Please enter a category...", new[] { "Policy.Category" }));
+            }
+
             return errors;
         }
     }
