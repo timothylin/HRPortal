@@ -6,10 +6,34 @@
 
 <h2>View Policy Details</h2>
 
-<p>Policy ID: @Html.DisplayFor(m => m.PolicyId)</p>
-<p>Title: @Html.DisplayFor(m => m.Title)</p>
-<p>Category: @Html.DisplayFor(m => m.Category)</p>
-<p>Content: @Html.DisplayFor(m => m.ContentText)</p>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><b>Field</b></td>
+        <td><b>Value</b></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Policy ID</td>
+        <td>@Html.DisplayFor(m => m.PolicyId)</td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td>@Html.DisplayFor(m => m.Title)</td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td>@Html.DisplayFor(m => m.Category)</td>
+    </tr>
+    <tr>
+        <td>Content</td>
+        <td>@Html.DisplayFor(m => m.ContentText)</td>
+    </tr>
+    </tbody>
+</table>
 
-@Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-primary" })
+<br/>
+
+@Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-danger" })
 
