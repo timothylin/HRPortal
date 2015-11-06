@@ -6,8 +6,16 @@ body {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#bootstrap-override {
+    float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 7.5px 20px 10px 7.5px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
