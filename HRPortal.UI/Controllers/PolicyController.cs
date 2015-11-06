@@ -93,7 +93,7 @@ namespace HRPortal.UI.Controllers
         {
             var newPolicy = new CreatePolicyVM();
             newPolicy.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
-            newPolicy.Policy.PolicyId = _rops.HighestPolicyIdNum() + 1;
+            //newPolicy.Policy.PolicyId = _rops.HighestPolicyIdNum() + 1;
             return View(newPolicy);
         }
 
@@ -107,6 +107,8 @@ namespace HRPortal.UI.Controllers
         [HttpPost]
         public ActionResult CreateNewPolicyInExistingCat(CreatePolicyVM newPolicy)
         {
+            newPolicy.Policy.PolicyId = _rops.HighestPolicyIdNum() + 1;
+
             if (ModelState.IsValid)
             {
                 _rops.AddNewPolicyInExistingCat(newPolicy.Policy);
