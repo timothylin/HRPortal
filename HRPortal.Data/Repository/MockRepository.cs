@@ -20,6 +20,7 @@ namespace HRPortal.Data.Repository
         public MockRepository()
         {
             //AppsList = new List<Resume>();
+            //GetAllResumes();
             ListOfPolicyCategories = new List<PolicyCategory>();
             ListOfPolicies = new List<Policy>();
             //InitializeMockResumeList();
@@ -128,11 +129,6 @@ namespace HRPortal.Data.Repository
             }
 
             return AppsList;
-        }
-
-        public Resume GetResumeById(int id)
-        {
-            return AppsList.FirstOrDefault(a => a.AppId == id);
         }
 
         public void AddResume(Resume newApp)
