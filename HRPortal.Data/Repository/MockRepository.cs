@@ -66,7 +66,7 @@ namespace HRPortal.Data.Repository
                     resume.Position.PositionName = pos.Element("PositionName").Value;
                     resume.Position.Description = pos.Element("Description").Value;
                     resume.Position.PostedDate = DateTime.Parse(pos.Element("PostedDate").Value);
-                    resume.Position.ClosingDate = DateTime.Parse(pos.Element("ClosingDate").Value);
+                    //resume.Position.ClosingDate = DateTime.Parse(pos.Element("ClosingDate").Value);
                 }
 
 
@@ -138,7 +138,8 @@ namespace HRPortal.Data.Repository
         public void AddResume(Resume newApp)
         {
 
-            XDocument doc = new XDocument(new XElement("resume",
+            XDocument doc = XDocument.Load(RootPath + "Resumes.xml");
+            doc.Element("resumes").Add(new XElement("resume",
                                                 new XElement("AppID", newApp.AppId),
                                                 new XElement("ContactInfo",
                                                     new XElement("FirstName", newApp.ApplicantContactInfo.FirstName),
@@ -193,7 +194,6 @@ namespace HRPortal.Data.Repository
                                                 ));
 
             doc.Save(RootPath + "Resumes.xml");
-
 
             //AppsList.Add(newApp);
         }
