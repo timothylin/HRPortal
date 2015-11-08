@@ -16,7 +16,6 @@ namespace HRPortal.Models.Interfaces
         List<Position> GetAllPositions();
 
         List<PolicyCategory> GetPolicyCategories();
-        //List<Policy> GetPoliciesList();
         List<Policy> GetAllPolicies();
 
         List<Policy> GetPoliciesListInCategory(PolicyCategory category);

@@ -94,7 +94,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DirectApply.css" />
+    <Content Include="Content\Images\SWG-logo-small.png" />
     <Content Include="Content\Images\SWG-Shield-Logo-e1444073303843.png" />
+    <Content Include="Content\Images\SWG-small.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
