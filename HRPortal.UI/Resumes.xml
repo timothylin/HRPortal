@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resume>
+	<AppID>1</AppID>
+	<ContactInfo>
+		<FirstName>Timothy</FirstName>
+		<LastName>Lin</LastName>
+		<MiddleInitial />
+		<Prefix>Mr.</Prefix>
+		<Suffix>Jr.</Suffix>
+		<Email>t@g.com</Email>
+		<PhoneNumber>1112223345</PhoneNumber>
+	</ContactInfo>
+	<Address>
+		<AddressLine1>100 S Main St.</AddressLine1>
+		<AddressLine2>Apt 145</AddressLine2>
+		<City>Akron</City>
+		<State>Ohio</State>
+		<Zipcode>44311</Zipcode>
+	</Address>
+	<Position>
+		<PositionID>0</PositionID>
+		<PositionName>Janitor</PositionName>
+		<PostedDate>0001-01-01T00:00:00</PostedDate>
+		<ClosingDate>0001-01-01T00:00:00</ClosingDate>
+		<Description></Description>
+	</Position>
+		<Experience>
+			<Company>Software Guild</Company>
+			<Title>Victor</Title>
+			<StartDate>2015-11-03T00:00:00</StartDate>
+			<EndDate>2015-11-06T00:00:00</EndDate>
+			<Location>
+				<AddressLine1 />
+				<AddressLine2 />
+				<City>Akron</City>
+				<State>Ohio</State>
+				<Zipcode />
+			</Location>
+			<Description />
+			<SupervisorName>Eric Wise</SupervisorName>
+			<SupervisorPhone>1234567890</SupervisorPhone>
+			<SupervisorEmail>t@g.com</SupervisorEmail>
+		</Experience>
+		<Education>
+			<Degree>HRPortal.Models.Degree</Degree>
+			<Institution>Wheaton College</Institution>
+			<Location>
+				<AddressLine1 />
+				<AddressLine2 />
+				<City>Wheaton</City>
+				<State>Illinois</State>
+				<Zipcode />
+			</Location>
+			<StartDate>2015-11-16T00:00:00</StartDate>
+			<GraduationDate>2015-11-20T00:00:00</GraduationDate>
+			<GPA>4</GPA>
+			<Concentration>Chemistry</Concentration>
+		</Education>
+		<DesiredSalary>1000000</DesiredSalary>
+		<AppDate>2015-11-27T00:00:00</AppDate>
+</resume>
