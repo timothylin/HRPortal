@@ -73,5 +73,10 @@ namespace HRPortal.Data.Repository
         {
             throw new NotImplementedException();
         }
+
+        public Resume GetResumeById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

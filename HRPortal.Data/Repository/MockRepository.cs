@@ -102,19 +102,19 @@ namespace HRPortal.Data.Repository
                     EducationInfo education = new EducationInfo();
                     List<EducationInfo> educations = new List<EducationInfo>();
 
-                        education.Degree.DegreeAbbr = edu.Element("Degree").Value;
-                        education.Institution = edu.Element("Institution").Value;
+                    education.Degree.DegreeAbbr = edu.Element("Degree").Value;
+                    education.Institution = edu.Element("Institution").Value;
 
-                        foreach (var address in xDoc.Elements("Location"))
-                        {
-                            education.Location.City = address.Element("City").Value;
-                            education.Location.State = address.Element("State").Value;
-                        }
+                    foreach (var address in xDoc.Elements("Location"))
+                    {
+                        education.Location.City = address.Element("City").Value;
+                        education.Location.State = address.Element("State").Value;
+                    }
 
-                        education.StartDate = DateTime.Parse(edu.Element("StartDate").Value);
-                        education.GraduationDate = DateTime.Parse(edu.Element("GraduationDate").Value);
-                        education.GPA = int.Parse(edu.Element("GPA").Value);
-                        education.Concentration = edu.Element("Concentration").Value;
+                    education.StartDate = DateTime.Parse(edu.Element("StartDate").Value);
+                    education.GraduationDate = DateTime.Parse(edu.Element("GraduationDate").Value);
+                    education.GPA = int.Parse(edu.Element("GPA").Value);
+                    education.Concentration = edu.Element("Concentration").Value;
 
                     educations.Add(education);
 
@@ -254,6 +254,12 @@ namespace HRPortal.Data.Repository
 
             return listOfStates;
         }
+
+        public Resume GetResumeById(int id)
+        {
+            return AppsList.FirstOrDefault(a => a.AppId == id);
+        }
+
 
         public void InitializeMockResumeList()
         {

@@ -10,6 +10,7 @@ namespace HRPortal.Models.Interfaces
     {
         List<Resume> GetAllResumes();
         void AddResume(Resume newApp);
+        Resume GetResumeById(int id);
 
         List<State> GetAllStates();
         List<Position> GetAllPositions();
