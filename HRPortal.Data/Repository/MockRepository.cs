@@ -21,8 +21,8 @@ namespace HRPortal.Data.Repository
         {
             //AppsList = new List<Resume>();
             //GetAllResumes();
-            ListOfPolicyCategories = new List<PolicyCategory>();
-            ListOfPolicies = new List<Policy>();
+            //ListOfPolicyCategories = new List<PolicyCategory>();
+            //ListOfPolicies = new List<Policy>();
             //InitializeMockResumeList();
             InitializePolicyCategories();
             InitializeListOfPolicies();
