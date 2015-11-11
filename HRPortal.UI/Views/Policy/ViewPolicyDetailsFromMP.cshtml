@@ -5,15 +5,15 @@
 }
 
 <h2>View Policy Details (and Delete)</h2>
-
-<table class="table table-hover">
-    <thead>
+<div>
+    <table class="table table-hover">
+        <thead>
         <tr>
             <td><b>Field</b></td>
             <td><b>Value</b></td>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr>
             <td>Policy ID</td>
             <td>@Html.DisplayFor(m => m.PolicyId)</td>
@@ -26,22 +26,21 @@
             <td>Category</td>
             <td>@Html.DisplayFor(m => m.Category)</td>
         </tr>
-    <tr>
-        <td>Content</td>
-        <td>@Html.DisplayFor(m => m.ContentText)</td>
-    </tr>
-    <tr>
-        <td>Action</td>
-        <td>@Html.ActionLink("DELETE", "DeletePolicy", "Policy", new {@Model.PolicyId, @Model.Category}, new { @class = "btn btn-danger"})
-        @Html.ActionLink("EDIT", "EditPolicy", "Policy", new { @Model.PolicyId }, new { @class = "btn btn-success" })</td>
-    </tr>
-    </tbody>
-</table>
+        <tr>
+            <td>Content</td>
+            <td>@Html.DisplayFor(m => m.ContentText)</td>
+        </tr>
+        <tr>
+            <td>Action</td>
+            <td>@Html.ActionLink("DELETE", "DeletePolicy", "Policy", new {@Model.PolicyId, @Model.Category}, new {@class = "btn btn-danger"})
+                @Html.ActionLink("EDIT", "EditPolicy", "Policy", new {@Model.PolicyId}, new {@class = "btn btn-success"})</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
-<br />
+<br/>
 
-@Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-primary" })
-
-
-
-
+<div>
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-warning" })
+</div>
