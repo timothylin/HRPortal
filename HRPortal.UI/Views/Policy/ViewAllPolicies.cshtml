@@ -5,28 +5,30 @@
 }
 
 <h2>View Policies in @Model.PolicyCategory.Category</h2>
-
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <td>Policy Name</td>
-        <td>Policy Category</td>
-        <td>Policy ID#</td>
-        <td>Link</td>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var p in Model.Policies)
-    {
+<div>
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <td>@Html.DisplayFor(m => p.Title)</td>
-            <td>@Html.DisplayFor(m => p.Category)</td>
-            <td>@Html.DisplayFor(m => p.PolicyId)</td>
-            <td>@Html.ActionLink("Details", "ViewPolicyDetails", "Policy", new {@p.PolicyId}, new {@class = "btn btn-primary"})</td>
+            <td>Policy Name</td>
+            <td>Policy Category</td>
+            <td>Policy ID#</td>
+            <td>Link</td>
         </tr>
-    }
-    </tbody>
-</table>
-
-@Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-danger" })
-
+        </thead>
+        <tbody>
+        @foreach (var p in Model.Policies)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => p.Title)</td>
+                <td>@Html.DisplayFor(m => p.Category)</td>
+                <td>@Html.DisplayFor(m => p.PolicyId)</td>
+                <td>@Html.ActionLink("Details", "ViewPolicyDetails", "Policy", new {@p.PolicyId}, new {@class = "btn btn-primary"})</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-warning" })
+</div>

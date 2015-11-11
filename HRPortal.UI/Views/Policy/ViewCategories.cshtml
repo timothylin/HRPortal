@@ -5,12 +5,15 @@
 }
 
 <h2>View Categories</h2>
+<div>
+    @using (Html.BeginForm("ViewAllPolicies", "Policy", FormMethod.Post))
+    {
+        <p>Select a Category to View: @Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
 
-@using (Html.BeginForm("ViewAllPolicies", "Policy", FormMethod.Post))
-{
-    <p>Select a Category to View: @Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
-
-    <button class="btn btn-success">Continue</button>
-}
+        <button class="btn btn-success">Continue</button>
+    }
+</div>
 <br />
-@Html.ActionLink("Return to Policies Index", "Index", "Policy", null, new { @class = "btn btn-danger"})
+<div>
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-warning" })
+</div>

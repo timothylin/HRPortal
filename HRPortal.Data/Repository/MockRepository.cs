@@ -485,7 +485,9 @@ namespace HRPortal.Data.Repository
 
         public List<PolicyCategory> GetPolicyCategories()
         {
-            return ListOfPolicyCategories;
+            return ListOfPolicyCategories.OrderBy(p => p.Category).Select(p => p).ToList();
+
+            //return ListOfPolicyCategories;
         }
 
         public List<Policy> GetPoliciesListInCategory(PolicyCategory category)

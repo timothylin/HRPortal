@@ -5,10 +5,15 @@
 }
 
 <h2>Manage Categories</h2>
-
-@using (@Html.BeginForm("ManagePoliciesInCategory", "Policy", FormMethod.Post))
-{
-            <p>Edit Policies in the Following Categories:</p>
-            <p>@Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
-            <button class="btn btn-primary">Manage the Policies in the Above Category</button>
-}
+<div>
+    @using (@Html.BeginForm("ManagePoliciesInCategory", "Policy", FormMethod.Post))
+    {
+        <p>Edit Policies in the Following Categories:</p>
+        <p>@Html.DropDownListFor(m => m.PolicyCategory.Category, Model.PolicyCategoriesList)</p>
+        <button class="btn btn-primary">Manage the Policies in the Above Category</button>
+    }
+    <br/>
+</div>
+<div>
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new {@class = "btn btn-warning"})
+</div>

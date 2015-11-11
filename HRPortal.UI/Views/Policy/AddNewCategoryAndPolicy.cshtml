@@ -7,19 +7,23 @@
 <h2>Add a New Policy in a New Category</h2>
 
 <div>
-@using (Html.BeginForm("AddNewCategoryAndPolicy", "Policy", FormMethod.Post))
-{
-    @Html.HiddenFor(m => m.Policy.PolicyId)
-    @Html.ValidationSummary(true)
+    @using (Html.BeginForm("AddNewCategoryAndPolicy", "Policy", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Policy.PolicyId)
+        @Html.ValidationSummary(true)
 
-    @Html.ValidationMessageFor(m => m.Policy.Title)
-    <p>Policy Title*: @Html.EditorFor(m => m.Policy.Title)</p>
-    @Html.ValidationMessageFor(m => m.Policy.Category)
-    <p>Policy Category*: @Html.EditorFor(m => m.Policy.Category)</p>
-    @Html.ValidationMessageFor(m => m.Policy.ContentText)
-    <p>Content Text*: @Html.EditorFor(m => m.Policy.ContentText)</p>
+        @Html.ValidationMessageFor(m => m.Policy.Title)
+        <p>Policy Title*: @Html.EditorFor(m => m.Policy.Title)</p>
+        @Html.ValidationMessageFor(m => m.Policy.Category)
+        <p>Policy Category*: @Html.EditorFor(m => m.Policy.Category)</p>
+        @Html.ValidationMessageFor(m => m.Policy.ContentText)
+        <p>Content Text*: @Html.EditorFor(m => m.Policy.ContentText)</p>
 
-    <button type="reset" class="btn btn-warning">RESET</button>
-    <button type="Submit" class="btn btn-success">Submit</button>
-}
+        <button type="reset" class="btn btn-danger">RESET</button>
+        <button type="Submit" class="btn btn-success">Submit</button>
+    }
+</div>
+<br />
+<div>
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policy", null, new { @class = "btn btn-warning" })
 </div>
