@@ -19,11 +19,11 @@ namespace HRPortal.Data.Repository
 
         public MockRepository()
         {
-            //AppsList = new List<Resume>();
+            AppsList = new List<Resume>();
             //GetAllResumes();
             //ListOfPolicyCategories = new List<PolicyCategory>();
             //ListOfPolicies = new List<Policy>();
-            //InitializeMockResumeList();
+            InitializeMockResumeList();
             InitializePolicyCategories();
             InitializeListOfPolicies();
             RootPath = System.Web.HttpContext.Current.Server.MapPath("~/Files/");
@@ -31,7 +31,7 @@ namespace HRPortal.Data.Repository
 
         public List<Resume> GetAllResumes()
         {
-            AppsList = new List<Resume>();
+            //AppsList = new List<Resume>();
             XDocument xDoc = XDocument.Load(RootPath + "Resumes.xml");
             var applications = xDoc.Descendants("resumes");
 
