@@ -19,11 +19,11 @@ namespace HRPortal.Data.Repository
 
         public MockRepository()
         {
-            AppsList = new List<Resume>();
+            //AppsList = new List<Resume>();
             //GetAllResumes();
             //ListOfPolicyCategories = new List<PolicyCategory>();
             //ListOfPolicies = new List<Policy>();
-            InitializeMockResumeList();
+            //InitializeMockResumeList();
             InitializePolicyCategories();
             InitializeListOfPolicies();
             RootPath = System.Web.HttpContext.Current.Server.MapPath("~/Files/");
@@ -31,7 +31,7 @@ namespace HRPortal.Data.Repository
 
         public List<Resume> GetAllResumes()
         {
-            //AppsList = new List<Resume>();
+            AppsList = new List<Resume>();
             XDocument xDoc = XDocument.Load(RootPath + "Resumes.xml");
             var applications = xDoc.Descendants("resumes");
 
@@ -41,7 +41,7 @@ namespace HRPortal.Data.Repository
 
                 resume.AppId = int.Parse(app.Element("AppID").Value);
 
-                foreach (var info in xDoc.Descendants("ContactInfo"))
+                foreach (var info in app.Descendants("ContactInfo"))
                 {
                     resume.ApplicantContactInfo.FirstName = info.Element("FirstName").Value;
                     resume.ApplicantContactInfo.LastName = info.Element("LastName").Value;
@@ -52,7 +52,7 @@ namespace HRPortal.Data.Repository
                     resume.ApplicantContactInfo.PhoneNumber = info.Element("PhoneNumber").Value;
                 }
 
-                foreach (var address in xDoc.Descendants("Address"))
+                foreach (var address in app.Descendants("Address"))
                 {
                     resume.ApplicantContactInfo.Address.AddressLine1 = address.Element("AddressLine1").Value;
                     resume.ApplicantContactInfo.Address.AddressLine2 = address.Element("AddressLine2").Value;
@@ -61,7 +61,7 @@ namespace HRPortal.Data.Repository
                     resume.ApplicantContactInfo.Address.Zipcode = address.Element("Zipcode").Value;
                 }
 
-                foreach (var pos in xDoc.Descendants("Position"))
+                foreach (var pos in app.Descendants("Position"))
                 {
                     resume.Position.PositionId = int.Parse(pos.Element("PositionID").Value);
                     resume.Position.PositionName = pos.Element("PositionName").Value;
@@ -71,7 +71,7 @@ namespace HRPortal.Data.Repository
                 }
 
 
-                foreach (var exp in xDoc.Descendants("Experience"))
+                foreach (var exp in app.Descendants("Experience"))
                 {
                     Experience experience = new Experience();
                     List<Experience> experiences = new List<Experience>();
@@ -81,7 +81,7 @@ namespace HRPortal.Data.Repository
                     experience.StartDate = DateTime.Parse(exp.Element("StartDate").Value);
                     experience.EndDate = DateTime.Parse(exp.Element("EndDate").Value);
 
-                    foreach (var address in xDoc.Descendants("Location"))
+                    foreach (var address in exp.Descendants("Location"))
                     {
                         experience.Location.City = address.Element("City").Value;
                         experience.Location.State = address.Element("State").Value;
@@ -96,7 +96,7 @@ namespace HRPortal.Data.Repository
                     resume.Experiences = experiences;
                 }
 
-                foreach (var edu in xDoc.Descendants("Education"))
+                foreach (var edu in app.Descendants("Education"))
                 {
 
                     EducationInfo education = new EducationInfo();
@@ -105,7 +105,7 @@ namespace HRPortal.Data.Repository
                     education.Degree.DegreeAbbr = edu.Element("Degree").Value;
                     education.Institution = edu.Element("Institution").Value;
 
-                    foreach (var address in xDoc.Elements("Location"))
+                    foreach (var address in edu.Elements("Location"))
                     {
                         education.Location.City = address.Element("City").Value;
                         education.Location.State = address.Element("State").Value;
@@ -113,7 +113,7 @@ namespace HRPortal.Data.Repository
 
                     education.StartDate = DateTime.Parse(edu.Element("StartDate").Value);
                     education.GraduationDate = DateTime.Parse(edu.Element("GraduationDate").Value);
-                    education.GPA = int.Parse(edu.Element("GPA").Value);
+                    education.GPA = decimal.Parse(edu.Element("GPA").Value);
                     education.Concentration = edu.Element("Concentration").Value;
 
                     educations.Add(education);
