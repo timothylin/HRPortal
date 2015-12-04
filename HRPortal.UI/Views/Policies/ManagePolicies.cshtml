@@ -1,0 +1,53 @@
+﻿@model HRPortal.UI.Models.ViewPoliciesVM
+
+@{
+    ViewBag.Title = "Manage Policies";
+}
+
+<h2>Manage Policies</h2>
+<div class="container">
+    @*View/Manage policies in a category*@
+    <div class="panel">
+        <div class="row panel-body">
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    Select a Category to Manage Its Policies
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var c in Model.PolicyCategories)
+                    {
+                        <li><a href="/Policies/ViewPoliciesInCategory/@c.CategoryId">@c.CategoryTitle</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    
+    @*Add policies options*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Add a New Policy</h4></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.ActionLink("Add New Policy in New Category", "AddPolicyToNewCategory", "Policies", null, new {@class = "btn btn-success"})
+                </div>
+                <br/>
+                <div class="form-group">
+                    @using (Html.BeginForm("AddPolicyInCategory", "Policies", null, FormMethod.Post, null))
+                    {
+                        <p>Or choose an existing Category to add a new policy to from below:</p>
+                         @Html.DropDownList("categoryId", Model.PolicyCategoriesList, new { @class = "form-control" })
+                        <br/>
+                         <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add New Policy to Category Selected</button>
+                    }
+                </div>
+            </div>
+    </div>
+    <br />
+    <div>
+        @Html.ActionLink("Return to Policies Index Page", "Index", "Policies", null, new { @class = "btn btn-danger" })
+    </div>
+</div>

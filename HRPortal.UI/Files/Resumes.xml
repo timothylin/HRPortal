@@ -540,4 +540,64 @@
     <DesiredSalary>10000000</DesiredSalary>
     <AppDate>2015-12-30T00:00:00</AppDate>
   </resume>
+  <resume>
+    <AppID>9</AppID>
+    <ContactInfo>
+      <FirstName>Dean</FirstName>
+      <LastName>Choi</LastName>
+      <MiddleInitial />
+      <Prefix>Mr</Prefix>
+      <Suffix />
+      <Email>deanchoi@gmail.com</Email>
+      <PhoneNumber>440-263-5132</PhoneNumber>
+    </ContactInfo>
+    <Address>
+      <AddressLine1>8993 Crooked Creek Ln</AddressLine1>
+      <AddressLine2 />
+      <City>Broadview Heights</City>
+      <State>Ohio</State>
+      <Zipcode>44147</Zipcode>
+    </Address>
+    <Position>
+      <PositionID>0</PositionID>
+      <PositionName>New Victor</PositionName>
+      <Description />
+      <PostedDate>0001-01-01T00:00:00</PostedDate>
+      <ClosingDate />
+    </Position>
+    <Experience>
+      <Company>deanzel Entertainment Conglormerate</Company>
+      <Title>DJ</Title>
+      <StartDate>2014-01-01T00:00:00</StartDate>
+      <EndDate>2015-08-31T00:00:00</EndDate>
+      <Location>
+        <AddressLine1 />
+        <AddressLine2 />
+        <City>Philadelphia</City>
+        <State>Pennsylvania</State>
+        <Zipcode />
+      </Location>
+      <Description />
+      <SupervisorName>The "Real" Timothy Lin</SupervisorName>
+      <SupervisorPhone>137-999-1337</SupervisorPhone>
+      <SupervisorEmail>timOGlin@gmail.com</SupervisorEmail>
+    </Experience>
+    <Education>
+      <Degree>BS</Degree>
+      <Institution>Duke University</Institution>
+      <Location>
+        <AddressLine1 />
+        <AddressLine2 />
+        <City>Durham</City>
+        <State>North Carolina</State>
+        <Zipcode />
+      </Location>
+      <StartDate>2005-08-01T00:00:00</StartDate>
+      <GraduationDate>2009-05-01T00:00:00</GraduationDate>
+      <GPA>3.7</GPA>
+      <Concentration>Biology &amp; Chemistry</Concentration>
+    </Education>
+    <DesiredSalary>1337</DesiredSalary>
+    <AppDate>2015-12-04T00:00:00</AppDate>
+  </resume>
 </resumes>

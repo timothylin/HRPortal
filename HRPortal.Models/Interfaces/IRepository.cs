@@ -25,5 +25,7 @@ namespace HRPortal.Models.Interfaces
 
         void AddNewPolicyInExistingCategory(Policy newPolicy);
         void AddNewPolicyInNewCategory(Policy newPolicy);
+
+        Policy AddNewPolicy(Policy newPolicy);
     }
 }

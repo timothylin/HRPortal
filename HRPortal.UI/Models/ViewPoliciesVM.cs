@@ -11,16 +11,18 @@ namespace HRPortal.UI.Models
     public class ViewPoliciesVM : IValidatableObject
     {
         public List<Policy> Policies { get; set; }
-        public PolicyCategory PolicyCategory { get; set; }  
-
+        //public PolicyCategory PolicyCategory { get; set; }  
+        public List<PolicyCategory> PolicyCategories { get; set; }
         public List<SelectListItem> PolicyCategoriesList { get; set; }
 
 
-        public ViewPoliciesVM()
+        public ViewPoliciesVM(List<PolicyCategory> catsList, List<Policy> policies )
         {
-            Policies = new List<Policy>();
-            PolicyCategory = new PolicyCategory();
+            Policies = policies;
+            //PolicyCategory = new PolicyCategory();
+            PolicyCategories = catsList;
             PolicyCategoriesList = new List<SelectListItem>();
+            CreatePolicyCatList(catsList);
         }
 
 

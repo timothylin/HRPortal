@@ -1,0 +1,44 @@
+﻿@model HRPortal.UI.Models.CreatePolicyVM
+
+@{
+    ViewBag.Title = "Add Policy To an Existing Category";
+}
+
+<h2>Add Policy To an Existing Category</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-body">
+            @using (Html.BeginForm("SubmitNewPolicyInCat", "Policies", null, FormMethod.Post, null))
+            {
+                @Html.HiddenFor(m => m.Policy.Category)
+                @Html.HiddenFor(m => m.Policy.PolicyId)
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.ValidationMessageFor(m => m.Policy.Title)
+                    @Html.LabelFor(m => m.Policy.Title, "Policy Title", new {@class = "control-label"})
+                    @Html.TextBoxFor(m => m.Policy.Title, new {@class = "form-control"})
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Policy.Category.CategoryTitle, "Category", new {@class = "control-label"})
+                    @Html.DropDownListFor(m => m.Policy.Category.CategoryId, Model.PolicyCategoriesList, new {@class = "form-control"})
+                </div>
+
+                <div class="form-group">
+                    @Html.ValidationMessageFor(m => m.Policy.ContentText)
+                    @Html.LabelFor(m => m.Policy.ContentText, "Content Text", new {@class = "control-label"})
+                    @Html.TextAreaFor(m => m.Policy.ContentText, new {@class = "form-control", @rows = "10"})
+                </div>
+
+                <button type="reset" class="btn btn-danger">RESET</button>
+                <button type="Submit" class="btn btn-success">Submit</button>
+            }
+        </div>
+        </div>
+</div>
+<br />
+<div>
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policies", null, new { @class = "btn btn-warning" })
+</div>

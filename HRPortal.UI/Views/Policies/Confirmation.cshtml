@@ -1,0 +1,49 @@
+﻿@model HRPortal.Models.Policy
+
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+<h2>Confirmation</h2>
+
+<p>You have successfully added a new Policy!!</p>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td><b>Field</b></td>
+                <td><b>Value</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Policy ID</td>
+                <td>@Html.DisplayFor(m => m.PolicyId)</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>@Html.DisplayFor(m => m.Title)</td>
+            </tr>
+        <tr>
+            <td>Category Title</td>
+            <td>@Html.DisplayFor(m => m.Category.CategoryTitle)</td>
+        </tr>
+        <tr>
+        <td>Category ID</td>
+        <td>@Html.DisplayFor(m => m.Category.CategoryId)</td>
+        </tr>
+        <tr>
+            <td>Date Added</td>
+            <td>@Html.DisplayFor(m => m.DateCreated)</td>
+        </tr>
+            <tr>
+                <td>Content</td>
+                <td>@Html.DisplayFor(m => m.ContentText)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    @Html.ActionLink("Return to Policies Index Page", "Index", "Policies", null, new { @class = "btn btn-warning" })
+</div>

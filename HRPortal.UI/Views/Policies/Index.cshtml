@@ -3,12 +3,14 @@
     ViewBag.Title = "Policy Management Index";
 }
 
-<h2>Policy Management Index</h2>
+<h2 class="text-center">Policy Management Index</h2>
+<br/>
+<div class="row">
+    <div class="btn-group btn-group-justified">
+        @Html.ActionLink("View Policies", "ViewAllPolicies", "Policies", null, new {@class = "btn btn-primary"})
 
-<div class="btn-group btn-group-justified">
-    @Html.ActionLink("View Policies", "ViewAllPolicies", "Policies", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Manage Policies", "ManagePolicies", "Policies", null, new {@class = "btn btn-primary"})
 
-    @Html.ActionLink("Manage Policies", "ManagePolicies", "Policies", null, new { @class = "btn btn-primary" })
-
-    @Html.ActionLink("Manage Categories", "ManageCategories", "Policies", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Manage Categories", "ManageCategories", "Policies", null, new {@class = "btn btn-primary"})
+    </div>
 </div>

@@ -115,6 +115,12 @@ namespace HRPortal.BLL
             return _repo.GetPolicyCategories();
         }
 
+        //List of All Policies
+        public List<Policy> ReturnAllPolicies()
+        {
+            return _repo.GetAllPolicies();
+        }
+
         //List of Policies in a certain Policy category
         public List<Policy> ReturnListOfPoliciesInCategory(PolicyCategory category)
         {
@@ -151,6 +157,12 @@ namespace HRPortal.BLL
         public void AddNewPolicyInNewCat(Policy newPolicy)
         {
             _repo.AddNewPolicyInNewCategory(newPolicy);
+        }
+
+        //Add new policy (sql)
+        public Policy AddNewPolicy(Policy newPolicy)
+        {
+            return _repo.AddNewPolicy(newPolicy);
         }
     }
 }

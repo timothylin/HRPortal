@@ -10,8 +10,10 @@ namespace HRPortal.Models
     public class Policy
     {
         public int PolicyId { get; set; }
+        [Required]
         public string Title { get; set; }
         public PolicyCategory Category { get; set; }
+        [Required]
         public string ContentText { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateCreated { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,16 +17,16 @@ namespace HRPortal.Data.Repository
     public class MockRepository : IRepository
     {
         public static List<Resume> AppsList { get; set; }
-        public static List<PolicyCategory> ListOfPolicyCategories { get; set; }
-        public static List<Policy> ListOfPolicies { get; set; }
+        public List<PolicyCategory> ListOfPolicyCategories { get; set; }
+        public List<Policy> ListOfPolicies { get; set; }
         public string RootPath { get; set; }
 
         public MockRepository()
         {
             //AppsList = new List<Resume>();
             //GetAllResumes();
-            //ListOfPolicyCategories = new List<PolicyCategory>();
-            //ListOfPolicies = new List<Policy>();
+            ListOfPolicyCategories = new List<PolicyCategory>();
+            ListOfPolicies = new List<Policy>();
             //InitializeMockResumeList();
             //InitializePolicyCategories();
             //InitializeListOfPolicies();
@@ -389,7 +390,8 @@ namespace HRPortal.Data.Repository
             {
                 var cmd = new SqlCommand();
                 cmd.CommandText = "select p.PolicyID, p.PolicyTitle, p.CategoryID, c.CategoryTitle, p.DateCreated, p.ContentText from [Policies] p" +
-                                  " LEFT JOIN [Categories] c ON p.CategoryID = c.CategoryID WHERE p.InPolicies = 1";
+                                  " LEFT JOIN [Categories] c ON p.CategoryID = c.CategoryID";
+                cmd.Connection = cn;
                 cn.Open();
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
@@ -418,6 +420,7 @@ namespace HRPortal.Data.Repository
             {
                 var cmd = new SqlCommand();
                 cmd.CommandText = "select * from [Categories]";
+                cmd.Connection = cn;
                 cn.Open();
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
@@ -462,6 +465,42 @@ namespace HRPortal.Data.Repository
                     ListOfPolicyCategories = newPolicyCategoriesList;
                 }
             }
+        }
+
+        public Policy AddNewPolicy(Policy newPolicy)
+        {
+            using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cn.Open();
+                //if new category, check to see if category exists via search then add it
+
+
+                //Add Policy in existing category
+                var p = new DynamicParameters();
+                p.Add("PolicyTitle", newPolicy.Title);
+                p.Add("CategoryID", newPolicy.Category.CategoryId);
+                p.Add("DateCreated", newPolicy.DateCreated);
+                p.Add("ContentText", newPolicy.ContentText);
+                p.Add("PolicyID", DbType.Int32, direction: ParameterDirection.Output);
+
+                cn.Execute("AddNewPolicy", p, commandType: CommandType.StoredProcedure);
+
+                newPolicy.PolicyId = p.Get<int>("PolicyID");
+
+                var p1 = new DynamicParameters();
+                p1.Add("CategoryID", newPolicy.Category.CategoryId);
+                var category =
+                    cn.Query<PolicyCategory>("SELECT * FROM Categories WHERE CategoryID = @CategoryID", p1)
+                        .FirstOrDefault();
+                if (category != null)
+                {
+                   newPolicy.Category.CategoryTitle = category.CategoryTitle; 
+                }
+                
+            }
+            return newPolicy;
         }
 
         public void AddNewPolicyInExistingCategory(Policy newPolicy)
