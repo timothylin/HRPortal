@@ -167,6 +167,7 @@
     <Content Include="Views\Policy\CreateNewPolicyInExistingCat.cshtml" />
     <Content Include="Views\Policy\Confirmation.cshtml" />
     <Content Include="Views\Policy\AddNewCategoryAndPolicy.cshtml" />
+    <Content Include="Views\Shared\_CreateAppView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

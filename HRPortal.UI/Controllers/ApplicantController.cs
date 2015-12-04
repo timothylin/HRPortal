@@ -36,7 +36,6 @@ namespace HRPortal.UI.Controllers
             newApplication.ApplicationInfo.AppId = _rops.HighestAppIDNum() + 1;
 
             return View(newApplication);
-
         }
 
         [HttpPost]
@@ -46,7 +45,6 @@ namespace HRPortal.UI.Controllers
             newAppInfo.CreatePositionsList(_rops.ReturnListOfPositions());
             newAppInfo.CreateDegreesList();
             
-
             if (ModelState.IsValid)
             {
                 _rops.AddAppToRepo(newAppInfo.ApplicationInfo);

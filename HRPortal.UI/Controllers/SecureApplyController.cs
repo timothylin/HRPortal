@@ -33,6 +33,8 @@ namespace HRPortal.UI.Controllers
             EducationInfo newEdu = new EducationInfo();
             newApplication.ApplicationInfo.Education.Add(newEdu);
 
+            newApplication.ApplicationInfo.AppId = _rops.HighestAppIDNum() + 1;
+
             return View(newApplication);
         }
 

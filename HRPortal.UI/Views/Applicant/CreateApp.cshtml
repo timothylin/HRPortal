@@ -8,7 +8,9 @@
 
 @using (Html.BeginForm("CreateApp", "Applicant", FormMethod.Post))
 {
-    @Html.HiddenFor(m => m.ApplicationInfo.AppId)
+    @Html.Partial("_CreateAppView", Model)
+
+    @*@Html.HiddenFor(m => m.ApplicationInfo.AppId)
     @Html.ValidationSummary(true)
 
     /*Contact Info*/
@@ -74,7 +76,7 @@
             <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
             <br />
             <button type="submit" class="btn btn-success">Submit</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
+            <button type="reset" class="btn btn-danger">Reset</button>*@
 
 }
 
