@@ -29,8 +29,8 @@ namespace HRPortal.UI.Models
             foreach (var cat in listOfPolicyCategories)
             {
                 var newItem = new SelectListItem();
-                newItem.Text = cat.Category;
-                newItem.Value = cat.Category;
+                newItem.Text = cat.CategoryTitle;
+                newItem.Value = cat.CategoryId.ToString();
 
                 PolicyCategoriesList.Add(newItem);
             }

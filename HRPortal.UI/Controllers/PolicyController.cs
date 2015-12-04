@@ -74,7 +74,7 @@ namespace HRPortal.UI.Controllers
         {
             _rops.RemovePolicyByIdOp(policyId);
             var viewPolicies = new ViewPoliciesVM();
-            viewPolicies.PolicyCategory.Category = category;
+            viewPolicies.PolicyCategory.CategoryTitle = category;
             viewPolicies.Policies = _rops.ReturnListOfPoliciesInCategory(viewPolicies.PolicyCategory);
 
             if (viewPolicies.Policies.Count() != 0)

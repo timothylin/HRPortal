@@ -8,6 +8,7 @@ namespace HRPortal.Models
 {
     public class PolicyCategory
     {
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryTitle { get; set; }
     }
 }

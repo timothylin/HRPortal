@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using HRPortal.Models;
+using Dapper;
+using HRPortal.Data.Config;
 using HRPortal.Models.Interfaces;
 
 namespace HRPortal.Data.Repository
@@ -24,8 +27,8 @@ namespace HRPortal.Data.Repository
             //ListOfPolicyCategories = new List<PolicyCategory>();
             //ListOfPolicies = new List<Policy>();
             //InitializeMockResumeList();
-            InitializePolicyCategories();
-            InitializeListOfPolicies();
+            //InitializePolicyCategories();
+            //InitializeListOfPolicies();
             RootPath = System.Web.HttpContext.Current.Server.MapPath("~/Files/");
         }
 
@@ -379,120 +382,64 @@ namespace HRPortal.Data.Repository
             return listOfPositions;
         }
 
-        public void InitializePolicyCategories()
-        {
-            ListOfPolicyCategories = new List<PolicyCategory>
-            {
-                new PolicyCategory()
-                {
-                    Category = "Attendance",
-                },
-                new PolicyCategory()
-                {
-                    Category = "Benefits",
-                },
-                new PolicyCategory()
-                {
-                    Category = "Code of Conduct",
-                },
-                new PolicyCategory()
-                {
-                    Category = "Dress Code",
-                },
-                new PolicyCategory()
-                {
-                    Category = "Time Off",
-                },
-                new PolicyCategory()
-                {
-                    Category = "Training",
-                }
-            };
-
-        }
-
-        //add a new policycateory (also one for deleting)
-
-        public void InitializeListOfPolicies()
-        {
-            ListOfPolicies = new List<Policy>
-            {
-                new Policy()
-                {
-                    PolicyId = 1,
-                    Title = "Sexual Harrassment",
-                    Category = "Code of Conduct",
-                    ContentText = "Don't touch people inappropriately..."
-                },
-                new Policy()
-                {
-                    PolicyId = 2,
-                    Title = "Casual Friday",
-                    Category = "Dress Code",
-                    ContentText = "On Fridays, you can where jeans as long as you donate $1."
-                },
-                new Policy()
-                {
-                    PolicyId = 3,
-                    Title = "Time that you must arrive to work",
-                    Category = "Attendance",
-                    ContentText = "All employees must arrive at work by 8AM unless they have a valid reason."
-                },
-                new Policy()
-                {
-                    PolicyId = 4,
-                    Title = "Health Care",
-                    Category = "Benefits",
-                    ContentText = "Every 6 months, employees may sign up for new HealthCare plans during the \"Open Season\"."
-                },
-                new Policy()
-                {
-                    PolicyId = 5,
-                    Title = "Vacation Accruing",
-                    Category = "Time Off",
-                    ContentText = "Employees will accrue 2 weeks of vacation every 6 months of employeement."
-                },
-                new Policy()
-                {
-                    PolicyId = 6,
-                    Title = "Safety Training",
-                    Category = "Training",
-                    ContentText = "All new employees must complete the initial safety training course within the first week of employment." +
-                                  " A refresher course must be taken for all employees every 12 months."
-                },
-                new Policy()
-                {
-                    PolicyId = 7,
-                    Title = "401K",
-                    Category = "Benefits",
-                    ContentText = "All employees will automatically have 2.5% of their salary attributed to a 401k account."
-                },
-                new Policy()
-                {
-                    PolicyId = 8,
-                    Title = "Normal Work Wear",
-                    Category = "Dress Code",
-                    ContentText = "All employees must dress in at least business casual clothing during normal business hours."
-                },
-
-            };
-        }
-
         public List<Policy> GetAllPolicies()
         {
+
+            using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
+            {
+                var cmd = new SqlCommand();
+                cmd.CommandText = "select p.PolicyID, p.PolicyTitle, p.CategoryID, c.CategoryTitle, p.DateCreated, p.ContentText from [Policies] p" +
+                                  " LEFT JOIN [Categories] c ON p.CategoryID = c.CategoryID WHERE p.InPolicies = 1";
+                cn.Open();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        var newPolicy = new Policy();
+                        newPolicy.PolicyId = int.Parse(dr["PolicyID"].ToString());
+                        newPolicy.Title = dr["PolicyTitle"].ToString();
+                        newPolicy.Category.CategoryId = int.Parse(dr["CategoryID"].ToString());
+                        newPolicy.Category.CategoryTitle = dr["CategoryTitle"].ToString();
+                        newPolicy.DateCreated = DateTime.Parse(dr["DateCreated"].ToString());
+                        newPolicy.ContentText = dr["ContentText"].ToString();
+
+                        ListOfPolicies.Add(newPolicy);
+                    }
+                }
+            }
+
             return ListOfPolicies;
         }
 
         public List<PolicyCategory> GetPolicyCategories()
         {
-            return ListOfPolicyCategories.OrderBy(p => p.Category).Select(p => p).ToList();
+            using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
+            {
+                var cmd = new SqlCommand();
+                cmd.CommandText = "select * from [Categories]";
+                cn.Open();
 
-            //return ListOfPolicyCategories;
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        var newCategory = new PolicyCategory();
+                        newCategory.CategoryId = int.Parse(dr["CategoryID"].ToString());
+                        newCategory.CategoryTitle = dr["CategoryTitle"].ToString();
+
+                        ListOfPolicyCategories.Add(newCategory);
+                    }
+                }
+            }
+
+            return ListOfPolicyCategories.OrderBy(c => c.CategoryTitle).ToList();
+
         }
 
         public List<Policy> GetPoliciesListInCategory(PolicyCategory category)
         {
-            return ListOfPolicies.Select(p => p).Where(p => p.Category == category.Category).ToList();
+            return ListOfPolicies.Select(p => p).Where(p => p.Category.CategoryTitle == category.CategoryTitle).ToList();
         }
 
         public Policy GetPolicyById(int id)
@@ -503,15 +450,15 @@ namespace HRPortal.Data.Repository
         public void RemovePolicyById(int id)
         {
             var appToRemove = ListOfPolicies.Select(p => p).Where(p => p.PolicyId == id).FirstOrDefault();
-            string catToCheck = appToRemove.Category;
+            string catToCheck = appToRemove.Category.CategoryTitle;
 
             if (appToRemove != null)
             {
                 ListOfPolicies.Remove(appToRemove);
 
-                if (ListOfPolicies.Where(p => p.Category == catToCheck).Count() == 0)
+                if (ListOfPolicies.Where(p => p.Category.CategoryTitle == catToCheck).Count() == 0)
                 {
-                    var newPolicyCategoriesList = ListOfPolicyCategories.Select(c => c).Where(c => c.Category != catToCheck).ToList();
+                    var newPolicyCategoriesList = ListOfPolicyCategories.Select(c => c).Where(c => c.CategoryTitle != catToCheck).ToList();
                     ListOfPolicyCategories = newPolicyCategoriesList;
                 }
             }
@@ -527,7 +474,7 @@ namespace HRPortal.Data.Repository
             ListOfPolicies.Add(newPolicy);
             PolicyCategory newCategory = new PolicyCategory()
             {
-                Category = newPolicy.Category
+                CategoryTitle = newPolicy.Category.CategoryTitle
             };
             ListOfPolicyCategories.Add(newCategory);
         }
