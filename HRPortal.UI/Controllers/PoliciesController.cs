@@ -10,7 +10,7 @@ namespace HRPortal.UI.Controllers
 {
     public class PoliciesController : Controller
     {
-        //private RepoOperations _rops;
+        private RepoOperations _rops;
 
         // GET: Policies
         public ActionResult Index()
@@ -20,7 +20,7 @@ namespace HRPortal.UI.Controllers
 
         public ActionResult ManagePolicies()
         {
-            var _rops = new RepoOperations();
+            _rops = new RepoOperations();
             var policiesVm = new ViewPoliciesVM(_rops.ReturnListOfPolicyCategories(), _rops.ReturnAllPolicies());
 
             return View(policiesVm);
@@ -34,7 +34,7 @@ namespace HRPortal.UI.Controllers
         [HttpPost]
         public ActionResult AddPolicyInCategory(string categoryId)
         {
-            var _rops = new RepoOperations();
+            _rops = new RepoOperations();
             var newPolicyVm = new CreatePolicyVM(_rops.ReturnListOfPolicyCategories());
             //newPolicyVm.CreatePolicyCatList(_rops.ReturnListOfPolicyCategories());
             newPolicyVm.Policy.Category.CategoryId = int.Parse(categoryId);
@@ -45,7 +45,7 @@ namespace HRPortal.UI.Controllers
         [HttpPost]
         public ActionResult SubmitNewPolicyInCat(CreatePolicyVM vM)
         {
-            var _rops = new RepoOperations();
+            _rops = new RepoOperations();
             vM.Policy.DateCreated = DateTime.Now.Date;
             //if (ModelState.IsValid)
             //{
@@ -59,7 +59,10 @@ namespace HRPortal.UI.Controllers
 
         public ActionResult ViewPoliciesInCategory(int id)
         {
-            return View();
+            _rops = new RepoOperations();
+            var policies = _rops.ReturnAllPolicies().Where(p => p.Category.CategoryId == id).ToList();
+
+            return View(policies);
         }
 
 

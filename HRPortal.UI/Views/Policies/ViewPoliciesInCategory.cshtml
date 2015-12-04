@@ -1,0 +1,33 @@
+﻿@model List<HRPortal.Models.Policy>
+
+@{
+    ViewBag.Title = "View Policies In Category";
+}
+
+<h2>View Policies In @Model[0].Category.CategoryTitle</h2>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Policy Title</td>
+                <td>Policy Category</td>
+                <td>Policy ID#</td>
+                <td>Date Created</td>
+                <td>Link</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => p.Title)</td>
+                    <td>@Html.DisplayFor(m => p.Category.CategoryTitle)</td>
+                    <td>@Html.DisplayFor(m => p.PolicyId)</td>
+                    <td>@Html.DisplayFor(m => p.DateCreated)</td>
+                    <td>@Html.ActionLink("Details", "ViewPolicyDetails", "Policies", new { @p.PolicyId }, new { @class = "btn btn-primary" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

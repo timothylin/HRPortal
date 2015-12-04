@@ -176,6 +176,7 @@
     <Content Include="Views\Policies\ManagePolicies.cshtml" />
     <Content Include="Views\Policies\AddPolicyInCategory.cshtml" />
     <Content Include="Views\Policies\Confirmation.cshtml" />
+    <Content Include="Views\Policies\ViewPoliciesInCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
