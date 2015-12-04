@@ -27,8 +27,8 @@ namespace HRPortal.UI.Models
             foreach (var cat in listOfPolicyCategories)
             {
                 var newItem = new SelectListItem();
-                newItem.Text = cat.Category;
-                newItem.Value = cat.Category;
+                newItem.Text = cat.CategoryTitle;
+                newItem.Value = cat.CategoryId.ToString();
 
                 PolicyCategoriesList.Add(newItem);
             }
@@ -48,9 +48,9 @@ namespace HRPortal.UI.Models
                 errors.Add(new ValidationResult("Please enter some context text...", new[] { "Policy.ContextText" }));
             }
 
-            if (string.IsNullOrEmpty(Policy.Category))
+            if (string.IsNullOrEmpty(Policy.Category.CategoryTitle))
             {
-                errors.Add(new ValidationResult("Please enter a category...", new[] { "Policy.Category" }));
+                errors.Add(new ValidationResult("Please enter a category...", new[] { "Policy.Category.CategoryTitle" }));
             }
 
             return errors;
