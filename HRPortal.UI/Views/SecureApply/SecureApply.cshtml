@@ -1,4 +1,5 @@
-﻿@model HRPortal.UI.Models.CreateAppVM
+﻿@using HRPortal.UI.Models
+@model HRPortal.UI.Models.CreateAppVM
 
 @{
     ViewBag.Title = "Secure Apply";
@@ -9,7 +10,9 @@
 
 @using (Html.BeginForm("SecureApply", "SecureApply", FormMethod.Post))
 {
-    @Html.HiddenFor(m => m.ApplicationInfo.AppId)
+    @Html.Partial("_CreateAppView", Model)
+
+    @*@Html.HiddenFor(m => m.ApplicationInfo.AppId)
     @Html.ValidationSummary(true)
 
     /*Contact Info*/
@@ -60,5 +63,5 @@
     <p>Desired Salary*: @Html.EditorFor(m => m.ApplicationInfo.DesiredSalary)</p>
 
     <p>Date of Application: @Html.EditorFor(m => m.ApplicationInfo.AppDate)</p>
-    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary">Submit</button>*@
 }
