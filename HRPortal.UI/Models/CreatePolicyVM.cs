@@ -12,13 +12,18 @@ namespace HRPortal.UI.Models
     {
         public Policy Policy { get; set; }
 
-        public List<SelectListItem> PolicyCategoriesList { get; set; }
+        public List<SelectListItem> PolCatsList { get; set; }
 
+        public CreatePolicyVM()
+        {
+            Policy = new Policy();
+            PolCatsList = new List<SelectListItem>();
+        }
 
         public CreatePolicyVM(List<PolicyCategory> catsList)
         {
             Policy = new Policy();
-            PolicyCategoriesList = new List<SelectListItem>();
+            PolCatsList = new List<SelectListItem>();
             CreatePolicyCatList(catsList);
         }
 
@@ -31,7 +36,7 @@ namespace HRPortal.UI.Models
                 newItem.Text = cat.CategoryTitle;
                 newItem.Value = cat.CategoryId.ToString();
 
-                PolicyCategoriesList.Add(newItem);
+                PolCatsList.Add(newItem);
             }
         }
 

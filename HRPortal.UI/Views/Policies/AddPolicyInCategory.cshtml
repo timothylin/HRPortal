@@ -9,10 +9,8 @@
 <div class="container">
     <div class="row">
         <div class="panel panel-body">
-            @using (Html.BeginForm("SubmitNewPolicyInCat", "Policies", null, FormMethod.Post, null))
+            @using (Html.BeginForm("SubmitNewPolicyInCat", "Policies", null, FormMethod.Post, new {@id = "addpolicyexistform" }))
             {
-                @Html.HiddenFor(m => m.Policy.Category)
-                @Html.HiddenFor(m => m.Policy.PolicyId)
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
@@ -23,7 +21,7 @@
 
                 <div class="form-group">
                     @Html.LabelFor(m => m.Policy.Category.CategoryTitle, "Category", new {@class = "control-label"})
-                    @Html.DropDownListFor(m => m.Policy.Category.CategoryId, Model.PolicyCategoriesList, new {@class = "form-control"})
+                    @Html.DropDownListFor(m => m.Policy.Category.CategoryId, Model.PolCatsList, new {@class = "form-control"})
                 </div>
 
                 <div class="form-group">
@@ -40,5 +38,11 @@
 </div>
 <br />
 <div>
-    @Html.ActionLink("Return to Policy Index Page", "Index", "Policies", null, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Return to Policy Index Page", "Index", "Policies", null, new {@class = "btn btn-warning"})
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/app/jquery-validate-default.js"></script>
+    <script src="~/Scripts/app/addpolicyexistingcategory.js"></script>
+}

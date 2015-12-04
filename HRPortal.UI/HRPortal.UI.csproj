@@ -108,6 +108,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Resumes.xml" />
+    <Content Include="Scripts\app\addpolicyexistingcategory.js" />
+    <Content Include="Scripts\app\addpolicynewcategory.js" />
+    <Content Include="Scripts\app\jquery-validate-default.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

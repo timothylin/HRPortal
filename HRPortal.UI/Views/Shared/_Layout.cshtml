@@ -30,13 +30,13 @@
                     <li><a href="/Admin/Index">Admin<span class="sr-only">(current)</span></a></li>
                     <li><a href="/Applicant/Index">Applicant</a></li>
                     <li class="dropdown">
-                        <a href="/Policy/Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Policies <span class="caret"></span></a>
+                        <a href="/Policies/Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Policies <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/Policy/Index">Policy Index</a></li>
+                            <li><a href="/Policies/Index">Policy Index</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/Policy/ViewAllPolicies">View Policies</a></li>
-                            <li><a href="/Policy/ManagePolicies">Manage Policies</a></li>
-                            <li><a href="/Policy/ManageCategories">Manage Categories</a></li>
+                            <li><a href="/Policies/ViewAllPolicies">View Policies</a></li>
+                            <li><a href="/Policies/ManagePolicies">Manage Policies</a></li>
+                            <li><a href="/Policies/ManageCategories">Manage Categories</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -89,6 +89,7 @@
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 </html>
