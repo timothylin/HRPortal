@@ -129,6 +129,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PoliciesController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
     <Compile Include="Controllers\SecureApplyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,6 +168,7 @@
     <Content Include="Views\Policy\CreateNewPolicyInExistingCat.cshtml" />
     <Content Include="Views\Policy\Confirmation.cshtml" />
     <Content Include="Views\Policy\AddNewCategoryAndPolicy.cshtml" />
+    <Content Include="Views\Policies\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
